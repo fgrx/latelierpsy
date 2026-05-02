@@ -1,0 +1,29 @@
+---
+import NewsletterForm from "./NewsletterForm.vue";
+
+const perks = ["Contenus sourcés", "Pratique & accessible", "Bimensuelle", "Gratuite"];
+---
+
+<section id="newsletter" class="bg-neutral py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="reveal">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-brand block mb-3">La Lettre Psy</span>
+      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink leading-tight mb-4">
+        Une newsletter bimensuelle sur la psychologie
+      </h2>
+      <p class="text-[15px] leading-relaxed text-ink-light mb-6">
+        Pour mieux comprendre la psychologie et la psychothérapie. Gratuite, fondée sur des contenus sourcés.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {perks.map((p) => (
+          <span class="text-xs font-semibold px-4 py-1.5 rounded-full bg-brand/10 text-brand">{p}</span>
+        ))}
+      </div>
+    </div>
+    <div class="reveal reveal-d1 bg-white rounded-2xl p-8 shadow-xl shadow-brand/10">
+      <div class="font-aveton text-[22px] text-ink mb-1">S'abonner à la Lettre Psy</div>
+      <div class="text-sm text-ink-faint mb-6">Rejoignez les 19 970 lecteurs</div>
+      <NewsletterForm client:load />
+    </div>
+  </div>
+</section>

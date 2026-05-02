@@ -1,0 +1,93 @@
+---
+const columns = [
+  {
+    title: "Ateliers psy",
+    links: [
+      "Estime de soi",
+      "Stabilisation émotionnelle",
+      "Souffrances relationnelles",
+      "Plan de traitement",
+      "Packs d'ateliers",
+    ],
+  },
+  {
+    title: "L'atelier",
+    links: ["Contenus psy", "La Lettre Psy", "Podcast", "Vidéos", "Instagram", "Articles psy"],
+  },
+  {
+    title: "Informations",
+    links: ["Qui sommes-nous ?", "Contact", "FAQ", "Mentions légales"],
+  },
+];
+
+const socials = ["instagram", "youtube", "podcast"];
+---
+
+<footer id="contact" class="bg-ink pt-14 pb-0">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/8">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img
+          src="/assets/Logo_pastille_vert.png"
+          alt=""
+          class="h-10 w-auto opacity-90"
+          style="filter: brightness(0) invert(1)"
+        />
+      </div>
+      <p class="text-[13px] text-white/45 leading-relaxed mb-5 max-w-[220px]">
+        Des ateliers de psychothérapie en ligne pour démocratiser la psychothérapie et commencer le travail chez vous.
+      </p>
+      <div class="flex gap-2">
+        {socials.map((name) => (
+          <a
+            href="#"
+            class="w-9 h-9 rounded-lg bg-white/8 flex items-center justify-center text-white/50 hover:bg-white/14 hover:text-white transition-all duration-200"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              {name === "instagram" && (
+                <>
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </>
+              )}
+              {name === "youtube" && (
+                <>
+                  <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z" />
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                </>
+              )}
+              {name === "podcast" && (
+                <>
+                  <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                  <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </>
+              )}
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {columns.map((col) => (
+      <div>
+        <div class="text-[10px] font-bold uppercase tracking-widest text-neutral mb-4">{col.title}</div>
+        {col.links.map((l) => (
+          <a href="#" class="block text-[13px] text-white/50 hover:text-white transition-colors mb-2 font-normal text-left">
+            {l}
+          </a>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-3 text-[12px] text-white/25">
+    <span>© 2026 Catherine la Psy — Tous droits réservés</span>
+    <div class="flex gap-5">
+      <a href="#" class="text-white/25 hover:text-white/50 transition-colors">Mentions légales</a>
+      <a href="#" class="text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>

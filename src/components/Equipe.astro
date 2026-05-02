@@ -1,0 +1,49 @@
+---
+const PHOTO_CATE =
+  "https://res.cloudinary.com/dyyzsnhr4/image/upload/v1658389604/large_cate_portrait_d5dc11dfb3.webp";
+const PHOTO_FABIEN =
+  "https://res.cloudinary.com/dyyzsnhr4/image/upload/v1770045169/large_IMG_6670_ff67356975.webp";
+
+const team = [
+  { name: "Catherine", role: "Psychologue · EMDR · Attachement", photo: PHOTO_CATE },
+  { name: "Fabien", role: "Psychopraticien · Hypnose · CNV", photo: PHOTO_FABIEN },
+];
+---
+
+<section id="equipe" class="bg-surface-2 py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="reveal">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">L'équipe</span>
+      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink leading-tight mb-5">
+        Derrière le projet, plusieurs personnes !
+      </h2>
+      <p class="text-[15px] leading-relaxed text-ink-light mb-4">
+        Catherine la Psy est partie d'un constat simple : la psychothérapie a besoin d'être démocratisée. Catherine et Fabien ont créé ce projet en 2021 pour proposer des ateliers accessibles.
+      </p>
+      <p class="text-[15px] leading-relaxed text-ink-light mb-8">
+        Prendre soin de son cerveau et l'aider à surmonter ses difficultés permet une vie épanouie — et c'est là toute notre mission.
+      </p>
+      <a href="#" class="btn-shine text-[14px] font-semibold px-7 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
+        En savoir plus →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 reveal reveal-d1">
+      {team.map((p) => (
+        <div class="card-lift rounded-2xl overflow-hidden shadow-md shadow-brand/10">
+          <div class="h-52 overflow-hidden">
+            <img
+              src={p.photo}
+              alt={p.name}
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-4 bg-white">
+            <div class="font-pronell text-[22px] text-ink mb-1">{p.name}</div>
+            <div class="text-[12px] text-ink-faint leading-snug">{p.role}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
