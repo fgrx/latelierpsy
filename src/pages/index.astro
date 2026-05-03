@@ -1,4 +1,6 @@
 ---
+import { getImage } from "astro:assets";
+import { siteConfig } from "../config";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.vue";
 import Hero from "../components/Hero.astro";
@@ -8,10 +10,13 @@ import Contenus from "../components/Contenus.astro";
 import Equipe from "../components/Equipe.astro";
 import Livre from "../components/Livre.astro";
 import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.png";
+
+const logoOptimized = await getImage({ src: logo, format: "webp" });
 ---
 
-<BaseLayout title="Catherine la Psy — Ateliers de psychothérapie en ligne">
-  <Nav client:load />
+<BaseLayout>
+  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} />
   <Hero />
   <Newsletter />
   <Ateliers />

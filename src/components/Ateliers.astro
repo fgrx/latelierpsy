@@ -1,7 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { siteConfig } from "../config";
 
 const ateliers = await getCollection("ateliers");
+const section = siteConfig.ateliers;
 
 const TAG_STYLES: Record<string, { bg: string; text: string }> = {
   "Estime de soi": { bg: "bg-surface", text: "text-brand" },
@@ -13,10 +16,10 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
 <section id="ateliers" class="bg-white py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12 reveal">
-      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">Nos ateliers psy</span>
-      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink mb-3">Des ateliers en ligne accessibles</h2>
+      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">{section.surtitle}</span>
+      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink mb-3">{section.title}</h2>
       <p class="text-[15px] text-ink-light leading-relaxed max-w-lg mx-auto">
-        Ils vous accompagnent sur des sujets précis, à votre rythme, chez vous.
+        {section.text}
       </p>
     </div>
 
@@ -26,9 +29,12 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
         return (
           <div class:list={["reveal", i === 1 ? "reveal-d2" : i === 2 ? "reveal-d3" : "reveal-d1", "card-lift bg-white rounded-2xl overflow-hidden border border-surface cursor-pointer shadow-sm"]}>
             <div class="overflow-hidden h-48">
-              <img
+              <Image
                 src={a.data.image}
                 alt={a.data.title}
+                width={600}
+                height={400}
+                format="webp"
                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>

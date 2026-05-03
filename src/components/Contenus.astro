@@ -1,4 +1,8 @@
 ---
+import { siteConfig } from "../config";
+
+const section = siteConfig.contenus;
+
 const contents = [
   {
     id: "youtube",
@@ -44,9 +48,9 @@ const waveHeights = [6, 11, 8, 15, 10, 13, 7, 12, 9];
   <div class="dot-pattern absolute inset-0 pointer-events-none opacity-50"></div>
   <div class="max-w-6xl mx-auto px-6 relative">
     <div class="text-center mb-12 reveal">
-      <span class="text-[11px] font-bold tracking-widest uppercase text-neutral/70 block mb-3">Nos contenus</span>
-      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-white mb-2">Retrouvez-nous partout</h2>
-      <p class="text-[15px] text-white/60">Des ressources gratuites sur la psychologie et la psychothérapie.</p>
+      <span class="text-[11px] font-bold tracking-widest uppercase text-neutral/70 block mb-3">{section.surtitle}</span>
+      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-white mb-2">{section.title}</h2>
+      <p class="text-[15px] text-white/60">{section.text}</p>
     </div>
 
     <div class="grid sm:grid-cols-3 gap-5">

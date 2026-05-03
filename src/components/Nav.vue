@@ -2,12 +2,12 @@
   <nav class="sticky top-0 z-50 nav-blur bg-white/95 border-b border-border">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center gap-6">
       <a href="/" class="shrink-0">
-        <img src="/assets/Logo_pastille_vert.png" alt="Catherine la Psy" class="h-11 w-auto" />
+        <img :src="logoSrc" alt="Catherine la Psy" class="h-11 w-auto" />
       </a>
 
       <div class="hidden md:flex items-center gap-1 flex-1">
         <a
-          v-for="link in links"
+          v-for="link in navLinks"
           :key="link.label"
           :href="link.href"
           class="nav-underline text-[13.5px] font-medium text-ink-light px-3 py-2 rounded-lg hover:text-brand hover:bg-surface transition-all duration-200"
@@ -60,7 +60,7 @@
       class="md:hidden border-t border-border bg-white px-6 py-4 flex flex-col gap-2 animate-fade-up"
     >
       <a
-        v-for="link in links"
+        v-for="link in navLinks"
         :key="link.label"
         :href="link.href"
         class="text-left text-sm font-medium text-ink-light py-2 border-b border-border/50 last:border-0"
@@ -78,12 +78,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-const open = ref(false);
+defineProps<{
+  logoSrc: string;
+  navLinks: { label: string; href: string }[];
+}>();
 
-const links = [
-  { label: "Ateliers psy", href: "#ateliers" },
-  { label: "Contenus psy", href: "#contenus" },
-  { label: "Qui sommes-nous ?", href: "#equipe" },
-  { label: "Contact", href: "#contact" },
-];
+const open = ref(false);
 </script>
