@@ -1,8 +1,10 @@
 ---
 import NewsletterForm from "./NewsletterForm.vue";
 import { siteConfig } from "../config";
+import { getAllStats } from "../lib/fetch-stats";
 
 const newsletter = siteConfig.newsletter;
+const stats = await getAllStats();
 ---
 
 <section id="newsletter" class="bg-neutral py-16 md:py-20">
@@ -23,8 +25,8 @@ const newsletter = siteConfig.newsletter;
     </div>
     <div class="reveal reveal-d1 bg-white rounded-2xl p-8 shadow-xl shadow-brand/10">
       <div class="font-aveton text-[22px] text-ink mb-1">S'abonner à la Lettre Psy</div>
-      <div class="text-sm text-ink-faint mb-6">Rejoignez les 19 970 lecteurs</div>
-      <NewsletterForm client:load />
+      <div class="text-sm text-ink-faint mb-6">Rejoignez les {stats.lettrePsy.value} lecteurs</div>
+      <NewsletterForm client:load count={stats.lettrePsy.value} />
     </div>
   </div>
 </section>
