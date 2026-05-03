@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from "astro:content";
+import { getImage } from "astro:assets";
+import { siteConfig } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.png";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+---
+
+<BaseLayout title={`${page.data.title} — L'atelier Psy`} description={page.data.description}>
+  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} navActions={siteConfig.nav.actions} />
+
+  <section class="relative bg-brand grain overflow-hidden">
+    <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative">
+      {page.data.surtitle && (
+        <span class="text-[11px] font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">
+          {page.data.surtitle}
+        </span>
+      )}
+      <h1 class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2">
+        {page.data.title}
+      </h1>
+    </div>
+  </section>
+
+  <article class="page-prose max-w-4xl mx-auto px-6 py-16 md:py-24">
+    <Content />
+  </article>
+
+  <Footer />
+</BaseLayout>

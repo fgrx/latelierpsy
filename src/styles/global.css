@@ -150,3 +150,104 @@ html {
 .btn-shine:hover::after {
   transform: translateX(100%);
 }
+
+.page-prose h2 {
+  font-family: var(--font-aveton);
+  font-weight: 400;
+  color: var(--color-brand);
+  font-size: 1.875rem;
+  line-height: 1.25;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-prose h3 {
+  font-family: var(--font-aveton);
+  font-weight: 400;
+  color: var(--color-ink);
+  font-size: 1.25rem;
+  line-height: 1.375;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-prose p {
+  color: var(--color-ink-light);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.page-prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.page-prose a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-brand);
+  transition: color 0.2s;
+}
+
+.page-prose a:hover {
+  color: var(--color-brand-dark);
+}
+
+.page-prose ul,
+.page-prose ol {
+  color: var(--color-ink-light);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.page-prose ul {
+  list-style-type: disc;
+}
+
+.page-prose ol {
+  list-style-type: decimal;
+}
+
+.page-prose li {
+  margin-bottom: 0.375rem;
+}
+
+.page-prose li::marker {
+  color: var(--color-brand);
+}
+
+.page-prose blockquote {
+  border-left: 3px solid var(--color-brand);
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--color-ink-light);
+}
+
+.page-prose blockquote p {
+  margin-bottom: 0.25rem;
+}
+
+.page-prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
+
+.page-prose img {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(31, 108, 93, 0.1);
+  margin: 1.5rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.page-prose h2:first-child {
+  margin-top: 0;
+}

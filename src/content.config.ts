@@ -13,4 +13,14 @@ const ateliers = defineCollection({
   }),
 });
 
-export const collections = { ateliers };
+const pages = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    surtitle: z.string().optional(),
+    image: z.string().optional(),
+  }),
+});
+
+export const collections = { ateliers, pages };

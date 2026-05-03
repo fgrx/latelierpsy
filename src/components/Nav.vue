@@ -18,16 +18,17 @@
 
       <div class="hidden md:flex items-center gap-2 ml-auto">
         <a
-          href="#"
-          class="text-[13px] font-semibold px-4 py-2 rounded-full border-[1.5px] border-brand text-brand hover:bg-surface transition-all duration-200"
+          v-for="action in navActions"
+          :key="action.label"
+          :href="action.href"
+          :class="[
+            'text-[13px] font-semibold py-2 rounded-full transition-all duration-200',
+            action.variant === 'outline'
+              ? 'px-4 border-[1.5px] border-brand text-brand hover:bg-surface'
+              : 'btn-shine px-5 bg-brand text-white hover:bg-brand-dark'
+          ]"
         >
-          Connexion
-        </a>
-        <a
-          href="#"
-          class="btn-shine text-[13px] font-semibold px-5 py-2 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors duration-200"
-        >
-          Nos ateliers →
+          {{ action.label }}
         </a>
       </div>
 
@@ -68,8 +69,19 @@
         {{ link.label }}
       </a>
       <div class="flex gap-2 pt-2">
-        <a href="#" class="flex-1 text-sm font-semibold py-2 rounded-full border-[1.5px] border-brand text-brand text-center">Connexion</a>
-        <a href="#" class="flex-1 text-sm font-semibold py-2 rounded-full bg-brand text-white text-center">Nos ateliers</a>
+        <a
+          v-for="action in navActions"
+          :key="action.label"
+          :href="action.href"
+          :class="[
+            'flex-1 text-sm font-semibold py-2 rounded-full text-center',
+            action.variant === 'outline'
+              ? 'border-[1.5px] border-brand text-brand'
+              : 'bg-brand text-white'
+          ]"
+        >
+          {{ action.label }}
+        </a>
       </div>
     </div>
   </nav>
@@ -81,6 +93,7 @@ import { ref } from "vue";
 defineProps<{
   logoSrc: string;
   navLinks: { label: string; href: string }[];
+  navActions: { label: string; href: string; variant: "outline" | "filled" }[];
 }>();
 
 const open = ref(false);

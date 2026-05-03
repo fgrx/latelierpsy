@@ -16,7 +16,7 @@ const logoOptimized = await getImage({ src: logo, format: "webp" });
 ---
 
 <BaseLayout>
-  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} />
+  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} navActions={siteConfig.nav.actions} />
   <Hero />
   <Newsletter />
   <Ateliers />

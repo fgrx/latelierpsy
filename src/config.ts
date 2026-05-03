@@ -10,8 +10,12 @@ export const siteConfig = {
     links: [
       { label: "Ateliers psy", href: "#ateliers" },
       { label: "Contenus psy", href: "#contenus" },
-      { label: "Qui sommes-nous ?", href: "#equipe" },
+      { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
       { label: "Contact", href: "#contact" },
+    ],
+    actions: [
+      { label: "Connexion", href: "#", variant: "outline" },
+      { label: "Nos ateliers →", href: "#ateliers", variant: "filled" },
     ],
   },
 
