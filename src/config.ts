@@ -14,8 +14,8 @@ export const siteConfig = {
       { label: "Contact", href: "/contact" },
     ],
     actions: [
-      { label: "Connexion", href: "#", variant: "outline" },
-      { label: "Nos ateliers →", href: "#ateliers", variant: "filled" },
+      { label: "Connexion", href: "https://ctpsy.podia.com/login", variant: "outline" },
+      { label: "Nos ateliers →", href: "/ateliers", variant: "filled" },
     ],
   },
 
