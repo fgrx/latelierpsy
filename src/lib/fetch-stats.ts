@@ -3,7 +3,6 @@ import { siteConfig } from "../config";
 interface Stats {
   lettrePsy: { value: string; label: string };
   youtube: { value: string; label: string };
-  ateliers: { value: string; label: string };
 }
 
 function formatCount(n: number): string {
@@ -45,7 +44,7 @@ async function getYoutubeCount(): Promise<number | null> {
   }
 }
 
-export async function getAllStats(activeAteliersCount: number): Promise<Stats> {
+export async function getAllStats(): Promise<Stats> {
   const [grCount, ytCount] = await Promise.all([
     getGetResponseCount(),
     getYoutubeCount(),
@@ -59,10 +58,6 @@ export async function getAllStats(activeAteliersCount: number): Promise<Stats> {
     youtube: {
       value: formatCount(ytCount ?? siteConfig.stats.youtube.fallback),
       label: siteConfig.stats.youtube.label,
-    },
-    ateliers: {
-      value: String(activeAteliersCount),
-      label: siteConfig.stats.ateliers.label,
     },
   };
 }
