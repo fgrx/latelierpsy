@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import { siteConfig } from "../../config";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.vue";
+import AtelierGrid from "../../components/AtelierGrid.vue";
+import Footer from "../../components/Footer.astro";
+import logo from "../../assets/logo.png";
+
+const allAteliers = await getCollection("ateliers", ({ data }) => data.active);
+const ateliers = allAteliers.sort((a, b) => {
+  const da = a.data.date ? new Date(a.data.date).getTime() : 0;
+  const db = b.data.date ? new Date(b.data.date).getTime() : 0;
+  return db - da;
+});
+
+const serializedAteliers = ateliers.map((a) => ({
+  id: a.id,
+  title: a.data.title,
+  tag: a.data.tag,
+  description: a.data.description,
+  image: a.data.image,
+  isPro: a.data.isPro ?? false,
+}));
+
+const section = siteConfig.ateliers;
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+---
+
+<BaseLayout title={`${section.title} — L'atelier Psy`} description={section.text}>
+  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} navActions={siteConfig.nav.actions} />
+
+  <section class="relative bg-brand grain overflow-hidden">
+    <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative text-center">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">{section.surtitle}</span>
+      <h1 class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2">{section.title}</h1>
+      <p class="text-[15px] text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3">{section.text}</p>
+    </div>
+  </section>
+
+  <section class="bg-surface-2 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <AtelierGrid client:load ateliers={serializedAteliers} />
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -8,7 +8,7 @@ export const siteConfig = {
 
   nav: {
     links: [
-      { label: "Ateliers psy", href: "#ateliers" },
+      { label: "Ateliers psy", href: "/ateliers" },
       { label: "Contenus psy", href: "#contenus" },
       { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
       { label: "Contact", href: "#contact" },
