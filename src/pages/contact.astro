@@ -1,0 +1,35 @@
+---
+import { getImage } from "astro:assets";
+import { siteConfig } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.vue";
+import ContactForm from "../components/ContactForm.vue";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.png";
+
+const section = siteConfig.contact;
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+---
+
+<BaseLayout title={`${section.surtitle} — L'atelier Psy`} description={section.text}>
+  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} navActions={siteConfig.nav.actions} />
+
+  <section class="relative bg-brand grain overflow-hidden">
+    <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative text-center">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">{section.surtitle}</span>
+      <h1 class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2 whitespace-pre-line">{section.title}</h1>
+      <p class="text-[15px] text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3">{section.text}</p>
+    </div>
+  </section>
+
+  <section class="bg-surface-2 py-16 md:py-24">
+    <div class="max-w-2xl mx-auto px-6 reveal">
+      <div class="bg-white rounded-2xl border border-surface shadow-sm p-8 md:p-10">
+        <ContactForm client:load variant="page" categories={siteConfig.contact.categories} />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

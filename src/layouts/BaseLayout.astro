@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import ContactBubble from "../components/ContactBubble.vue";
 import "../styles/global.css";
 
 interface Props {
@@ -25,6 +26,8 @@ const description = Astro.props.description ?? siteConfig.seo.description;
   </head>
   <body class="font-poppins text-ink bg-white overflow-x-hidden">
     <slot />
+
+    <ContactBubble client:load categories={siteConfig.contact.categories} />
 
     <script>
       const observer = new IntersectionObserver(

@@ -11,7 +11,7 @@ export const siteConfig = {
       { label: "Ateliers psy", href: "/ateliers" },
       { label: "Contenus psy", href: "#contenus" },
       { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "/contact" },
     ],
     actions: [
       { label: "Connexion", href: "#", variant: "outline" },
@@ -64,5 +64,18 @@ export const siteConfig = {
     lettrePsy: { fallback: 19_970, label: "abonnés Lettre Psy" },
     youtube: { fallback: 27_000, label: "abonnés YouTube" },
     ateliers: { label: "ateliers disponibles" },
+  },
+
+  contact: {
+    surtitle: "Contact",
+    title: "Une question ?\nUn renseignement ?",
+    text: "N'hésitez pas à nous contacter, nous vous répondrons dans les plus brefs délais.",
+    categories: [
+      { value: "renseignement_atelier", label: "Renseignement sur les ateliers" },
+      { value: "aide_commande", label: "Aide sur une commande" },
+      { value: "therapie", label: "Demande de thérapie" },
+      { value: "supervision", label: "Demande de supervision" },
+      { value: "autre", label: "Autre" },
+    ],
   },
 };
