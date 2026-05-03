@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
+import couverture from "../assets/Bienvenue-chez-le-psy.jpg";
 import { siteConfig } from "../config";
 
 const section = siteConfig.livre;
@@ -13,14 +13,13 @@ const titleLines = section.title.split("\n");
 
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-[320px_1fr] gap-12 md:gap-20 items-center">
     <div class="reveal relative mx-auto md:mx-0" style="max-width: 320px">
-      <div class="relative bg-[#d4ebde] rounded-2xl h-96 flex flex-col items-center justify-center gap-4 shadow-2xl overflow-hidden">
-        <div class="absolute left-0 top-0 bottom-0 w-5 bg-black/7 rounded-l-2xl"></div>
-        <div class="font-pronell text-[28px] text-brand leading-tight text-center px-8">
-          {titleLines.map((line, i) => (<>{i > 0 && <br />}{line}</>))}
-        </div>
-        <div class="w-10 h-0.5 bg-brand"></div>
-        <div class="text-[13px] font-medium text-ink-light">{section.subtitle}</div>
-        <Image src={logo} format="webp" alt="" class="absolute bottom-5 right-5 w-8 h-8 opacity-40" />
+      <div class="relative rounded-2xl shadow-2xl overflow-hidden">
+        <Image
+          src={couverture}
+          format="webp"
+          alt={section.title.replace("\n", " ")}
+          class="w-full h-auto block"
+        />
       </div>
       <div class="animate-float absolute -top-4 -right-4 w-[70px] h-[70px] rounded-full bg-gold flex flex-col items-center justify-center shadow-lg shadow-gold/40 text-[9px] font-bold uppercase tracking-wide text-ink leading-tight text-center">
         Notre<br />livre
