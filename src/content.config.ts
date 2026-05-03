@@ -9,6 +9,7 @@ const ateliers = defineCollection({
     description: z.string(),
     image: z.string(),
     order: z.number(),
+    active: z.boolean().default(false),
   }),
 });
 

@@ -4,6 +4,7 @@ tag: "Relations"
 description: "La théorie de l'attachement pour améliorer vos relations au quotidien."
 image: "https://res.cloudinary.com/dyyzsnhr4/image/upload/v1670324393/small_visuelattachement_ea2d7faa6e.webp"
 order: 3
+active: true
 ---
 
 ## Identifiez et réparez vos souffrances relationnelles
