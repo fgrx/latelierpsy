@@ -1,5 +1,5 @@
 <template>
-  <section v-if="questions && questions.length" class="py-16 md:py-20 bg-surface-2">
+  <section v-if="questions && questions.length" class="py-12 md:py-16 bg-surface-2">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-12">
         <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">FAQ</span>

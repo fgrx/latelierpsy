@@ -16,7 +16,7 @@ const ateliers = defineCollection({
     isPro: z.boolean().default(false),
     isForAll: z.boolean().default(false),
     date: z.date().optional(),
-    infoLive: z.string().optional(),
+    infoHero: z.string().optional(),
     formules: z.array(z.object({
       nom: z.string(),
       prix: z.number(),
@@ -28,7 +28,14 @@ const ateliers = defineCollection({
       titre: z.string(),
       details: z.array(z.string()).optional(),
     })).optional(),
-    principes: z.array(z.string()).optional(),
+    pictos: z.array(z.object({
+      title: z.string(),
+      type: z.string().optional(),
+    })).optional(),
+    principes: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+    })).optional(),
     publicAdapte: z.array(z.string()).optional(),
     publicNonAdapte: z.array(z.string()).optional(),
     temoignages: z.array(z.object({

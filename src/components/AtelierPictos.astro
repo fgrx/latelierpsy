@@ -1,0 +1,68 @@
+---
+interface Props {
+  pictos: { title: string; type?: string }[];
+}
+
+const { pictos } = Astro.props;
+
+if (!pictos || pictos.length === 0) return;
+
+const ICONS: Record<string, string> = {
+  duration: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+  replay:
+    "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+  livret:
+    "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  scientifique: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  video:
+    "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
+  default: "M13 10V3L4 14h7v7l9-11h-7z",
+};
+
+const getIcon = (type?: string) => ICONS[type ?? ""] ?? ICONS.default;
+---
+
+<section class="pt-10 md:pt-14">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {
+        pictos.map((p, i) => {
+          const icon = getIcon(p.type);
+          return (
+            <div
+              class:list={[
+                "flex flex-col items-center text-center p-5 rounded-2xl bg-brand-alternate/15 border border-brand-alternate/25",
+                i === 0
+                  ? "reveal"
+                  : i === 1
+                    ? "reveal reveal-d1"
+                    : i === 2
+                      ? "reveal reveal-d2"
+                      : "reveal reveal-d3",
+              ]}
+            >
+              <div class="w-10 h-10 rounded-full bg-brand-alternate/25 flex items-center justify-center mb-3">
+                <svg
+                  class="w-5 h-5 text-brand-alternate"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d={icon}
+                  />
+                </svg>
+              </div>
+              <p class="text-[13px] text-ink font-medium leading-snug">
+                {p.title}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
