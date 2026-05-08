@@ -3,15 +3,40 @@ import { glob } from "astro/loaders";
 
 const ateliers = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/ateliers" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     tag: z.string(),
     description: z.string(),
-    image: z.string(),
+    image: z.string().optional(),
+    bannerImage: z.string().optional(),
+    logoImage: image().optional(),
     order: z.number(),
-    active: z.boolean().default(false),
+    isActive: z.boolean().default(false),
+    active: z.boolean().default(false).optional(),
     isPro: z.boolean().default(false),
+    isForAll: z.boolean().default(false),
     date: z.date().optional(),
+    infoLive: z.string().optional(),
+    formules: z.array(z.object({
+      nom: z.string(),
+      prix: z.number(),
+      lien: z.string(),
+      details: z.array(z.string()),
+    })).optional(),
+    programme: z.array(z.object({
+      date: z.string(),
+      titre: z.string(),
+      details: z.array(z.string()).optional(),
+    })).optional(),
+    principes: z.array(z.string()).optional(),
+    publicAdapte: z.array(z.string()).optional(),
+    publicNonAdapte: z.array(z.string()).optional(),
+    temoignages: z.array(z.object({
+      texte: z.string(),
+      auteur: z.string(),
+    })).optional(),
+    faq: z.array(z.string()).optional(),
+    suiviMail: z.array(z.string()).optional(),
   }),
 });
 

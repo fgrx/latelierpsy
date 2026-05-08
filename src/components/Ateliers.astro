@@ -30,7 +30,7 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
           <div class:list={["reveal", i === 1 ? "reveal-d2" : i === 2 ? "reveal-d3" : "reveal-d1", "card-lift bg-white rounded-2xl overflow-hidden border border-surface cursor-pointer shadow-sm"]}>
             <div class="overflow-hidden h-48">
               <Image
-                src={a.data.image}
+                src={a.data.image || a.data.bannerImage}
                 alt={a.data.title}
                 width={600}
                 height={400}

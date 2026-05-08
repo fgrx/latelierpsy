@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  title: string;
+  tag: string;
+  description: string;
+  image?: ImageMetadata;
+  isPro?: boolean;
+  isForAll?: boolean;
+  infoLive?: string;
+}
+
+const {
+  title,
+  tag,
+  description,
+  image,
+  isPro = false,
+  isForAll = false,
+  infoLive,
+} = Astro.props;
+
+const TAG_STYLES: Record<string, { bg: string; text: string }> = {
+  "Estime de soi": { bg: "bg-surface", text: "text-brand" },
+  Émotions: { bg: "bg-red-50", text: "text-coral" },
+  Relations: { bg: "bg-blue-50", text: "text-blue-600" },
+  Psychotrauma: { bg: "bg-white", text: "text-brand" },
+  Traumas: { bg: "bg-white", text: "text-brand" },
+  thérapie: { bg: "bg-gold/10", text: "text-gold" },
+};
+const style = TAG_STYLES[tag] || { bg: "bg-surface", text: "text-brand" };
+---
+
+<section class="relative overflow-hidden bg-brand grain">
+  <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div class="max-w-2xl order-2 md:order-1">
+        <div class="flex flex-wrap items-center gap-2 mb-5 animate-fade-up">
+          <span
+            class:list={[
+              "inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider",
+              style.bg,
+              style.text,
+            ]}
+          >
+            {tag}
+          </span>
+          {
+            isForAll && (
+              <span class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
+                Atelier pour tous·tes
+              </span>
+            )
+          }
+          {
+            isPro && (
+              <span class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
+                Pour les professionnel·les
+              </span>
+            )
+          }
+        </div>
+
+        <h1
+          class="font-pronell text-3xl md:text-5xl font-normal leading-[1.1] text-white tracking-tight animate-fade-up-2"
+        >
+          {title}
+        </h1>
+
+        <p
+          class="text-[15px] text-white/70 leading-relaxed mt-5 animate-fade-up-3"
+        >
+          {description}
+        </p>
+
+        {
+          infoLive && (
+            <div class="mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2.5 animate-fade-up-3">
+              <span class="w-2 h-2 rounded-full bg-coral animate-pulse-dot" />
+              <span class="text-[13px] text-white font-medium">{infoLive}</span>
+            </div>
+          )
+        }
+      </div>
+
+      {
+        image && (
+          <div class="order-1 md:order-2 shrink-0 animate-fade-up">
+            <Image
+              src={image}
+              alt={title}
+              width={208}
+              height={208}
+              format="webp"
+              class="w-40 h-40 md:w-52 md:h-52 rounded-2xl object-cover shadow-lg"
+            />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

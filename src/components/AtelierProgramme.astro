@@ -1,0 +1,80 @@
+---
+interface Session {
+  date: string;
+  titre: string;
+  details?: string[];
+}
+
+interface Props {
+  programme: Session[];
+  suiviMail?: string[];
+}
+
+const { programme, suiviMail } = Astro.props;
+
+if (!programme || programme.length === 0) return;
+---
+
+<section class="py-16 md:py-20 bg-surface-2">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">Programme</span>
+      <h2 class="font-aveton text-2xl md:text-3xl text-ink">Les sessions en détail</h2>
+    </div>
+
+    <div class="space-y-8">
+      {programme.map((s, i) => (
+        <div class="bg-white rounded-2xl border border-border p-6 md:p-8 reveal" class:list={[i === 1 ? "reveal-d1" : i === 2 ? "reveal-d2" : ""]}>
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center shrink-0 mt-0.5">
+              <span class="text-[12px] font-bold text-brand">{i + 1}</span>
+            </div>
+            <div>
+              <span class="text-[12px] font-semibold text-brand">{s.date}</span>
+              <h3 class="font-aveton text-lg text-ink leading-snug mt-0.5">{s.titre}</h3>
+            </div>
+          </div>
+
+          {s.details && s.details.length > 0 && (
+            <ul class="space-y-2.5 pl-12">
+              {s.details.map((d) => (
+                <li class="flex items-start gap-2.5 text-[13px] text-ink-light leading-snug">
+                  <svg class="w-4 h-4 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+
+    {suiviMail && suiviMail.length > 0 && (
+      <div class="mt-12 p-6 bg-white rounded-2xl border border-border reveal reveal-d1">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-aveton text-lg text-ink mb-2">💌 Un accompagnement sur la durée</h3>
+            <p class="text-[14px] text-ink-light leading-relaxed mb-3">
+              Parce qu'une session par mois peut sembler longue, <strong class="text-ink font-semibold">nous avons ajouté un suivi hebdomadaire par mail</strong>. Chaque semaine, entre deux ateliers, vous recevrez :
+            </p>
+            <ul class="space-y-2">
+              {suiviMail.map((item) => (
+                <li class="flex items-start gap-2 text-[13px] text-ink-light leading-snug">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand shrink-0 mt-1.5"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</section>

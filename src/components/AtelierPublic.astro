@@ -1,0 +1,60 @@
+---
+interface Props {
+  adapte: string[];
+  nonAdapte: string[];
+}
+
+const { adapte, nonAdapte } = Astro.props;
+
+if (!adapte?.length && !nonAdapte?.length) return;
+---
+
+<section class="py-16 md:py-20 bg-surface-2">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">Pour qui ?</span>
+      <h2 class="font-aveton text-2xl md:text-3xl text-ink">Est-ce que cet atelier est fait pour vous ?</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 reveal">
+      <div class="bg-white rounded-2xl border border-border p-7">
+        <h3 class="font-aveton text-lg text-brand mb-5">Cet atelier est fait pour vous si…</h3>
+        <ul class="space-y-3">
+          {adapte.map((item) => (
+            <li class="flex items-start gap-2.5 text-[14px] text-ink-light leading-snug">
+              <svg class="w-4.5 h-4.5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-border p-7">
+        <h3 class="font-aveton text-lg text-coral mb-5">L'atelier n'est pas adapté si…</h3>
+        <ul class="space-y-3">
+          {nonAdapte.map((item) => (
+            <li class="flex items-start gap-2.5 text-[14px] text-ink-light leading-snug">
+              <svg class="w-4.5 h-4.5 text-coral shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 p-5 bg-gold/5 rounded-xl border border-gold/15 flex items-start gap-3.5 reveal reveal-d1">
+      <div class="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      <p class="text-[13px] leading-snug text-ink-light">
+        <strong class="text-ink font-semibold">Un rappel important :</strong> nos ateliers psy ne remplacent pas une psychothérapie en face à face. Ils sont là pour vous accompagner durant un premier travail sur vous-même, à votre rythme, avec toutes les ressources nécessaires pour avancer le plus possible depuis chez vous.
+      </p>
+    </div>
+  </div>
+</section>

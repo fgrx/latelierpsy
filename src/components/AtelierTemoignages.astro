@@ -1,0 +1,38 @@
+---
+interface Temoignage {
+  texte: string;
+  auteur: string;
+}
+
+interface Props {
+  temoignages: Temoignage[];
+}
+
+const { temoignages } = Astro.props;
+
+if (!temoignages || temoignages.length === 0) return;
+---
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">Ils nous font confiance</span>
+      <h2 class="font-aveton text-2xl md:text-3xl text-ink">Ce qu'ils disent de nos accompagnements</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {temoignages.map((t, i) => {
+        const delay = i === 0 ? "reveal" : i === 1 ? "reveal reveal-d1" : i === 2 ? "reveal reveal-d2" : "reveal reveal-d3";
+        return (
+          <div class:list={["bg-surface rounded-2xl p-6 border border-border/50", delay]}>
+            <svg class="w-6 h-6 text-brand/20 mb-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+            <p class="text-[14px] text-ink-light leading-relaxed mb-4">{t.texte}</p>
+            <span class="text-[12px] font-semibold text-brand">— {t.auteur}</span>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

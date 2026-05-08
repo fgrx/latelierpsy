@@ -8,7 +8,7 @@ const PHOTO_CATE_FAB =
   "https://res.cloudinary.com/dyyzsnhr4/image/upload/v1659690331/medium_catefab_photo_b963c63c77.webp";
 
 const allAteliers = await getCollection("ateliers");
-const activeAteliersCount = allAteliers.filter((a) => a.data.active === true).length;
+const activeAteliersCount = allAteliers.filter((a) => a.data.isActive === true || a.data.active === true).length;
 
 const stats = await getAllStats();
 const hero = siteConfig.hero;

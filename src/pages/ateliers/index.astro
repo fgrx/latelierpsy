@@ -8,7 +8,7 @@ import AtelierGrid from "../../components/AtelierGrid.vue";
 import Footer from "../../components/Footer.astro";
 import logo from "../../assets/logo.png";
 
-const allAteliers = await getCollection("ateliers", ({ data }) => data.active);
+const allAteliers = await getCollection("ateliers", ({ data }) => data.isActive || data.active);
 const ateliers = allAteliers.sort((a, b) => {
   const da = a.data.date ? new Date(a.data.date).getTime() : 0;
   const db = b.data.date ? new Date(b.data.date).getTime() : 0;
@@ -20,7 +20,7 @@ const serializedAteliers = ateliers.map((a) => ({
   title: a.data.title,
   tag: a.data.tag,
   description: a.data.description,
-  image: a.data.image,
+  image: a.data.image || a.data.bannerImage,
   isPro: a.data.isPro ?? false,
 }));
 

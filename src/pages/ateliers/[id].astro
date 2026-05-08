@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from "astro:content";
+import { getImage } from "astro:assets";
+import { siteConfig } from "../../config";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.vue";
+import AtelierHero from "../../components/AtelierHero.astro";
+import Footer from "../../components/Footer.astro";
+import logo from "../../assets/logo.png";
+
+export async function getStaticPaths() {
+  const ateliers = await getCollection("ateliers");
+  return ateliers.map((a) => ({
+    params: { id: a.id },
+    props: { atelier: a },
+  }));
+}
+
+const { atelier } = Astro.props;
+const { Content } = await render(atelier);
+const d = atelier.data;
+
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+---
+
+<BaseLayout title={`${d.title} — L'atelier Psy`} description={d.description}>
+  <Nav
+    client:load
+    logoSrc={logoOptimized.src}
+    navLinks={siteConfig.nav.links}
+    navActions={siteConfig.nav.actions}
+  />
+
+  <AtelierHero
+    title={d.title}
+    tag={d.tag}
+    description={d.description}
+    image={d.logoImage}
+    isPro={d.isPro}
+    isForAll={d.isForAll}
+    infoLive={d.infoLive}
+  />
+
+  <Content />
+
+  <Footer />
+</BaseLayout>
