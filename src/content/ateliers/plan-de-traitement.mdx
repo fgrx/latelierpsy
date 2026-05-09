@@ -1,0 +1,125 @@
+---
+title: "Créez votre plan de traitement"
+tag: "psychothérapie"
+description: "Un atelier pour être plus efficace avec ses patient·e·s en fonction de vos propres approches de thérapies."
+infoHero: "Maximisez vos accompagnement peu importe votre approche de thérapie"
+logoImage: "./images/plan-de-traitement/logo-plan-de-traitement.png"
+colorPresentation: bg-brand-alternate
+order: 5
+isActive: true
+isPro: true
+isForAll: false
+date: 2024-05-25
+pictos:
+  - title: 5h30 d'atelier et 28 vidéos
+    type: duration
+  - title: 16 documents PDF
+    type: livret
+  - title: Les documents de travail de Catherine
+    type: exercises
+  - title: Accès illimité et mises à jour gratuites
+    type: illimited
+purchase:
+  price: 279
+  buyUrl: https://ctpsy.podia.com/view/courses/creez-vos-plans-de-traitement
+programme:
+  - titre: "Définition et utilité d'un plan de traitement"
+    details:
+      - "Qu'est-ce qu'un plan de traitement ?"
+      - "Pourquoi en avoir un ?"
+      - "Les facteurs communs de succès en thérapie"
+  - titre: "Avant de faire son plan de traitement"
+    details:
+      - "Les questions à poser lors du premier entretien"
+      - "Les exercices à proposer en début de traitement"
+      - "Obtenir toutes les informations nécessaires"
+      - "Créer une alliance thérapeutique solide"
+  - titre: "Création du plan de traitement"
+    details:
+      - "Élaborer les étapes d'une thérapie"
+      - "Concilier vos différentes approches dans un plan commun"
+      - "Élaborer un objectif commun avec vos patient·e·s"
+      - "Créer votre propre fichier diagnostic"
+  - titre: "Outils et techniques supplémentaires"
+    details:
+      - "Utiliser le reparentage"
+      - "Suivre l'évolution du traitement"
+      - "Les documents que Catherine utilise en séance"
+      - "Comment adapter le plan aux progrès et évolutions"
+  - titre: "Ressources supplémentaires"
+    details:
+      - "Documents PDF à utiliser directement"
+      - "Modèles de plans de traitement"
+temoignages:
+  - texte: "Je suis absolument fan de vos ateliers formatifs et les web. Je remets à jour voire même je découvre certains aspects théoriques...je me sens beaucoup plus opérationnelle. L'atelier est structuré, illustré, il y a une apposition théorie pratique qui me parle et me sécurise dans la mise en pratique. Surtout, continuez !!! Merci"
+    auteur: "Marie"
+  - texte: "Bravo et merci pour la clarté et le pragmatisme de vos explications. Votre atelier est d'une très grande rigueur et très qualitatif ! Continuez ! J'adore !!"
+    auteur: "JDM"
+  - texte: "Continuez ! Pour un praticien qui démarre votre contenu est vraiment inspirant."
+    auteur: "Maya"
+---
+
+import AtelierProse from "../../components/AtelierProse.astro";
+import AtelierPictos from "../../components/AtelierPictos.astro";
+import AtelierProgramme from "../../components/AtelierProgramme.astro";
+import AtelierTemoignages from "../../components/AtelierTemoignages.astro";
+import AtelierFAQ from "../../components/AtelierFAQ.vue";
+import AtelierPurchase from "../../components/AtelierPurchase.astro";
+
+<AtelierPictos pictos={frontmatter.pictos} />
+
+<AtelierPurchase purchase={frontmatter.purchase} />
+
+<AtelierProse>
+
+## Présentation en vidéo
+
+<iframe
+  width="560"
+  height="315"
+  class="md:w-full md:h-120"
+  src="https://www.youtube.com/embed/E0pC1inBkQ0?si=FbHsblRPb0t2kU6p"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+## Pour maximiser les possibilités de changement en thérapie
+
+Pour maximiser les possibilités de changement en thérapie, il est essentiel d'avoir un plan de traitement qui permet d'accompagner vos patient·e·s.
+
+Peu importent vos approches de thérapie, cet atelier vous emmènera de la première séance à la dernière séance en passant par la construction de votre plan de traitement, véritable feuille de route pour la thérapie.
+
+Saviez-vous qu'il existe des **facteurs communs évalués par les chercheur·e·s en psychologie** qui prédisent une meilleure probabilité de succès de la thérapie ? C'est en s'appuyant sur ces concepts que nous avons conçu cet atelier pour vous aider à favoriser le changement durant vos consultations, quelles que soient vos approches.
+
+## Comment le plan de traitement peut améliorer vos séances
+
+- Il agira comme une **sécurité pour le patient** et une aide pour le thérapeute car il permettra aussi de s'assurer qu'il a bien tous les paramètres et informations sur son patient ou sa patiente. Quand on sait que 10% des thérapies créent de nouveaux problèmes chez les personnes accompagnées, il est important d'être méthodique et rigoureux pour éviter de faire plus de mal que de bien !
+
+- Les questions posées, les analyses qui sont faites poussent les personnes accompagnées à **réfléchir sur eux·elles mêmes**.
+
+- L'établissement de ce plan permettra à vos patient·e·s de **mesurer leurs progrès** et leurs avancées.
+
+- Pour le thérapeute, c'est un **guide sur le long terme** qui lui permettra de voir quand les buts du patient sont atteints.
+
+## Dans cet atelier vous allez apprendre à
+
+- Faire un diagnostic pour élaborer les étapes d'une thérapie
+- Créer votre propre fichier diagnostic en fonction de vos approches
+- Concilier vos différentes approches dans un plan de traitement commun
+- Suivre l'évolution du traitement des patient·e·s que vous accompagnez
+- Utiliser le reparentage
+- Créer une alliance thérapeutique solide
+- Élaborer un objectif commun avec vos patient·e·s
+
+</AtelierProse>
+
+<AtelierProgramme programme={frontmatter.programme} />
+
+<AtelierPurchase purchase={frontmatter.purchase} />
+
+<AtelierTemoignages temoignages={frontmatter.temoignages} />
+
+<AtelierFAQ client:load questions={frontmatter.faq} />

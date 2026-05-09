@@ -3,7 +3,14 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { siteConfig } from "../config";
 
-const ateliers = await getCollection("ateliers");
+const allAteliers = await getCollection("ateliers", ({ data }) => data.isActive || data.active);
+const ateliers = allAteliers
+  .sort((a, b) => {
+    const da = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const db = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return db - da;
+  })
+  .slice(0, 3);
 const section = siteConfig.ateliers;
 
 const TAG_STYLES: Record<string, { bg: string; text: string }> = {
@@ -26,33 +33,51 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {ateliers.map((a, i) => {
         const style = TAG_STYLES[a.data.tag] || { bg: "bg-surface", text: "text-brand" };
+        const imgSrc = a.data.image || a.data.bannerImage;
         return (
-          <div class:list={["reveal", i === 1 ? "reveal-d2" : i === 2 ? "reveal-d3" : "reveal-d1", "card-lift bg-white rounded-2xl overflow-hidden border border-surface cursor-pointer shadow-sm"]}>
-            <div class="overflow-hidden h-48">
-              <Image
-                src={a.data.image || a.data.bannerImage}
-                alt={a.data.title}
-                width={600}
-                height={400}
-                format="webp"
-                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <a href={`/ateliers/${a.id}`} class:list={["reveal block", i === 1 ? "reveal-d2" : i === 2 ? "reveal-d3" : "reveal-d1", "card-lift bg-white rounded-2xl overflow-hidden border border-surface shadow-sm"]}>
+            {imgSrc ? (
+              <div class="overflow-hidden h-48">
+                <Image
+                  src={imgSrc}
+                  alt={a.data.title}
+                  width={600}
+                  height={400}
+                  format="webp"
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ) : a.data.logoImage ? (
+              <div class:list={["flex items-center justify-center h-56", a.data.colorPresentation || "bg-brand"]}>
+                <Image
+                  src={a.data.logoImage}
+                  alt={a.data.title}
+                  width={144}
+                  height={144}
+                  format="webp"
+                  class="w-36 h-36 object-contain drop-shadow"
+                />
+              </div>
+            ) : (
+              <div class="flex items-center justify-center h-48 bg-brand">
+                <span class="text-white font-aveton text-lg">{a.data.tag}</span>
+              </div>
+            )}
             <div class="p-6">
               <span class:list={["inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3", style.bg, style.text]}>
                 {a.data.tag}
               </span>
               <div class="font-aveton text-[19px] leading-snug text-ink mb-2">{a.data.title}</div>
               <div class="text-[13px] leading-relaxed text-ink-faint mb-5">{a.data.description}</div>
-              <a href="#" class="group flex items-center gap-2 text-[13px] font-semibold text-brand">
+              <span class="group flex items-center gap-2 text-[13px] font-semibold text-brand">
                 En savoir plus
                 <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
         );
       })}
     </div>

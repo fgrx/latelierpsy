@@ -10,6 +10,7 @@ const ateliers = defineCollection({
     image: z.string().optional(),
     bannerImage: z.string().optional(),
     logoImage: image().optional(),
+    colorPresentation: z.string().default("bg-brand"),
     order: z.number(),
     isActive: z.boolean().default(false),
     active: z.boolean().default(false).optional(),

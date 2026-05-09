@@ -1,0 +1,64 @@
+---
+title: "Packs d'ateliers psy"
+tag: "Packs"
+description: "Vous souhaitez obtenir plusieurs ateliers à un tarif préférentiel ? Nous vous proposons plusieurs formules qui vous permettront d'acheter les ateliers au meilleur prix."
+logoImage: "./images/packs/logo-packs2.png"
+colorPresentation: bg-brand
+order: 6
+isActive: true
+isPro: true
+isForAll: true
+formules:
+  - nom: "Pack émotions — 3 ateliers"
+    prix: 599
+    lien: "https://ctpsy.podia.com/pack-emotions"
+    details:
+      - "Estime de soi stable et durable"
+      - "La stabilisation émotionnelle"
+      - "Identifiez et réparez vos souffrances relationnelles grâce à la théorie de l'attachement"
+      - "Réduction de 100€ (599€ au lieu de 699€)"
+  - nom: "Pack Full — 4 ateliers"
+    prix: 798
+    lien: "https://ctpsy.podia.com/pack-full-2026"
+    details:
+      - "Estime de soi stable et durable"
+      - "La stabilisation émotionnelle"
+      - "Identifiez et réparez vos souffrances relationnelles grâce à la théorie de l'attachement"
+      - "Créez votre plan de traitement (atelier pro)"
+      - "Réduction de 180€ (798€ au lieu de 978€)"
+---
+
+import AtelierProse from "../../components/AtelierProse.astro";
+import AtelierPictos from "../../components/AtelierPictos.astro";
+import AtelierFormules from "../../components/AtelierFormules.astro";
+
+<AtelierProse>
+
+## Pack émotions — 3 ateliers pour tous·tes
+
+Profitez d'une réduction de 100€ (599€ au lieu de 699€) grâce à l'achat de ce pack d'ateliers !
+
+Ce pack comprend les ateliers suivants :
+
+- **Estime de soi stable et durable**
+- **La stabilisation émotionnelle**
+- **Identifiez et réparez vos souffrances relationnelles** grâce à la théorie de l'attachement
+
+## Pack Full — Nos 4 ateliers à un prix préférentiel
+
+Profitez d'une réduction de 180€ grâce à l'achat du pack Full comprenant tous nos ateliers (798€ au lieu de 978€).
+
+Ce pack comprend les ateliers suivants :
+
+- **Estime de soi stable et durable**
+- **La stabilisation émotionnelle**
+- **Identifiez et réparez vos souffrances relationnelles** grâce à la théorie de l'attachement
+- **Créez votre plan de traitement** (atelier à destination des professionnel·les de l'accompagnement)
+
+## Vous souhaitez un pack personnalisé ?
+
+N'hésitez pas à nous contacter pour construire le pack d'atelier qui vous correspond le mieux !
+
+</AtelierProse>
+
+<AtelierFormules formules={frontmatter.formules} />
