@@ -4,7 +4,7 @@ tag: "Psychotrauma"
 description: "Un travail différent pour dépasser vos réactions problématiques sans analyser votre passé ou chercher le pourquoi"
 bannerImage: "https://res.cloudinary.com/dyyzsnhr4/image/upload/v1713971737/small_banner_stabilisation_bf40a4eed7.webp"
 logoImage: "./images/psychotrauma/logo-psychotrauma.png"
-order: 4
+order: 1
 isActive: true
 isPro: true
 isForAll: true
@@ -134,7 +134,7 @@ import AtelierPrincipes from "../../components/AtelierPrincipes.astro";
 import AtelierPublic from "../../components/AtelierPublic.astro";
 import AtelierTemoignages from "../../components/AtelierTemoignages.astro";
 import AtelierFAQ from "../../components/AtelierFAQ.vue";
-import { Image } from "astro:assets";
+import AtelierFormateur from "../../components/AtelierFormateur.astro";
 import catherinePortrait from "./images/catherine_portrait.jpg";
 
 <AtelierPictos pictos={frontmatter.pictos} />
@@ -275,43 +275,16 @@ Il n'est donc plus question de compréhension, mais de mécanisme neurobiologiqu
   nonAdapte={frontmatter.publicNonAdapte}
 />
 
-<div class="not-prose bg-brand-alternate/15 rounded-2xl p-6 md:p-8 mt-12">
-  <h2 class="font-aveton font-normal text-brand text-[1.875rem] leading-tight mb-4">
-    Qui donne cet atelier ?
-  </h2>
-  <Image
-    src={catherinePortrait}
-    alt="Catherine la Psy"
-    width={300}
-    height={300}
-    format="webp"
-    class="w-40 h-40 md:w-60 md:h-60 rounded-full object-cover border-2 border-brand/20 float-left mr-5 mb-3"
-  />
-  <p class="text-[15px] text-ink-light leading-relaxed">
-    C'est moi Catherine "la Psy" qui donnerai ces ateliers. J'exerce comme
-    psychologue clinicienne en cabinet depuis 10 ans.
-  </p>
-  <p class="text-[15px] text-ink-light leading-relaxed">
-    <strong class="text-ink font-semibold">
-      Je suis spécialisée en psychotrauma
-    </strong>{" "}
-    : EMDR, théorie de la dissociation structurelle, psychothérapie des traumas
-    complexes, troubles de l'attachement et des relations, thérapie centrée sur
-    les émotions, thérapie des schémas.
-  </p>
-  <p class="text-[15px] text-ink-light leading-relaxed">
-    Mon éthique professionnelle : une posture ouverte, sans dogmatisme ni
-    approche exclusive, qui valorise la collaboration, la nuance, la réflexion
-    critique, l'adaptation aux besoins uniques de chacun et une pratique
-    toujours ancrée dans la recherche scientifique.
-  </p>
-  <p class="text-[15px] text-ink-light leading-relaxed">
-    Je ne veux imposer aucune technique, mais ouvrir un espace sans injonctions
-    pour avancer progressivement en toute sécurité à la résolution de vos
-    symptômes.
-  </p>
-  <div class="clear-both"></div>
-</div>
+<AtelierFormateur
+  title="Qui donne cet atelier ?"
+  image={catherinePortrait}
+  color="brand-alternate"
+>
+  <p>C'est moi Catherine "la Psy" qui donnerai ces ateliers. J'exerce comme psychologue clinicienne en cabinet depuis 10 ans.</p>
+  <p><strong class="text-ink font-semibold">Je suis spécialisée en psychotrauma</strong> : EMDR, théorie de la dissociation structurelle, psychothérapie des traumas complexes, troubles de l'attachement et des relations, thérapie centrée sur les émotions, thérapie des schémas.</p>
+  <p>Mon éthique professionnelle : une posture ouverte, sans dogmatisme ni approche exclusive, qui valorise la collaboration, la nuance, la réflexion critique, l'adaptation aux besoins uniques de chacun et une pratique toujours ancrée dans la recherche scientifique.</p>
+  <p>Je ne veux imposer aucune technique, mais ouvrir un espace sans injonctions pour avancer progressivement en toute sécurité à la résolution de vos symptômes.</p>
+</AtelierFormateur>
 
 <AtelierTemoignages temoignages={frontmatter.temoignages} />
 

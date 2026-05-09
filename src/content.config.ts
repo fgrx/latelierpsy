@@ -23,8 +23,13 @@ const ateliers = defineCollection({
       lien: z.string(),
       details: z.array(z.string()),
     })).optional(),
+    purchase: z.object({
+      price: z.number(),
+      buyUrl: z.string(),
+    }).optional(),
+    problems: z.array(z.string()).optional(),
     programme: z.array(z.object({
-      date: z.string(),
+      date: z.string().optional(),
       titre: z.string(),
       details: z.array(z.string()).optional(),
     })).optional(),

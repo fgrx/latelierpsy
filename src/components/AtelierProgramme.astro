@@ -38,9 +38,11 @@ if (!programme || programme.length === 0) return;
                 <span class="text-[12px] font-bold text-brand">{i + 1}</span>
               </div>
               <div>
-                <span class="text-[12px] font-semibold text-brand">
-                  {s.date}
-                </span>
+                {s.date && (
+                  <span class="text-[12px] font-semibold text-brand">
+                    {s.date}
+                  </span>
+                )}
                 <h3 class="font-aveton text-lg text-ink leading-snug mt-0.5">
                   {s.titre}
                 </h3>

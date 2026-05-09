@@ -1,0 +1,28 @@
+---
+interface PurchaseInfo {
+  price: number;
+  buyUrl: string;
+}
+
+interface Props {
+  purchase: PurchaseInfo;
+}
+
+const { purchase } = Astro.props;
+
+if (!purchase) return;
+---
+
+<div class="text-center my-10">
+  <a
+    href={purchase.buyUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="btn-shine inline-block text-[15px] font-semibold px-10 py-4 rounded-full transition-colors shadow-md bg-brand text-white hover:bg-brand-dark shadow-brand/20"
+  >
+    Acheter — {purchase.price}&nbsp;€
+  </a>
+  <p class="text-[12px] text-ink-faint mt-2">
+    Vous serez redirigé sur podia.com
+  </p>
+</div>

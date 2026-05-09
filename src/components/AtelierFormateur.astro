@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  title: string;
+  image: ImageMetadata;
+  color?: "brand" | "brand-alternate" | "coral";
+}
+
+const { title, image, color = "brand" } = Astro.props;
+
+const COLOR_MAP: Record<string, { bg: string; border: string; heading: string; imageBorder: string }> = {
+  brand: {
+    bg: "bg-brand/10",
+    border: "border-brand/15",
+    heading: "text-brand",
+    imageBorder: "border-brand/20",
+  },
+  "brand-alternate": {
+    bg: "bg-brand-alternate/15",
+    border: "border-brand-alternate/20",
+    heading: "text-brand",
+    imageBorder: "border-brand-alternate/20",
+  },
+  coral: {
+    bg: "bg-coral/10",
+    border: "border-coral/15",
+    heading: "text-coral",
+    imageBorder: "border-coral/20",
+  },
+};
+
+const styles = COLOR_MAP[color];
+---
+
+<div class="max-w-4xl mx-auto px-6">
+<div class:list={["not-prose rounded-2xl p-6 md:p-8 mt-12 reveal", styles.bg, `border ${styles.border}`]}>
+  <h2 class:list={["font-aveton font-normal text-[1.875rem] leading-tight mb-6", styles.heading]}>
+    {title}
+  </h2>
+  <div class="md:flex md:gap-8 items-start">
+    <div class="shrink-0 mx-auto md:mx-0 mb-5 md:mb-0">
+      <Image
+        src={image}
+        alt={title}
+        width={300}
+        height={300}
+        format="webp"
+        class:list={["w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-2", styles.imageBorder]}
+      />
+    </div>
+    <div class="text-[15px] text-ink-light leading-relaxed space-y-3">
+      <slot />
+    </div>
+  </div>
+</div>

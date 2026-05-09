@@ -1,0 +1,22 @@
+---
+interface Props {
+  problems: string[];
+}
+
+const { problems } = Astro.props;
+
+if (!problems || problems.length === 0) return;
+---
+
+<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+  {problems.map((p, i) => (
+    <div
+      class:list={[
+        "flex italic border border-border px-4 py-4 rounded-lg bg-surface",
+        i >= 4 ? "hidden md:flex" : "",
+      ]}
+    >
+      <p class="text-[14px] text-ink-light leading-relaxed">&ldquo;{p}&rdquo;</p>
+    </div>
+  ))}
+</div>
