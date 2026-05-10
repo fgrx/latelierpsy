@@ -1,0 +1,151 @@
+---
+title: "La Lettre Psy"
+surtitle: "Newsletter"
+description: "Un email toutes les deux semaines pour mieux comprendre sa psychologie et le monde de la psychothérapie. Gratuite, fondée sur des contenus sourcés."
+---
+
+import NewsletterForm from "../../components/NewsletterForm.vue";
+
+<div class="not-prose mb-20 reveal">
+  <h2 class="font-pronell text-3xl md:text-4xl text-ink leading-tight mb-10 text-center">
+    La Lettre Psy c'est :
+  </h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Analyses d'articles scientifiques</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Des synthèses accessibles de recherches sur la psychologie et la
+        psychothérapie.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-coral" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Retours sur notre pratique</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Des réflexions sur notre expérience clinique au
+        cabinet.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.984 8.984 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Recommandations culturelles</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Livres, films, jeux vidéo en lien avec la psychothérapie — sélectionnés
+        avec soin.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Vidéos et podcasts</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Des contenus audio et vidéo inspirants pour nourrir votre réflexion.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-coral/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-coral" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.148.5.286.74.414m0 0a12.198 12.198 0 004.67-3.534m0 0a12.198 12.198 0 00-4.67-3.534m-5.16 10.224a12.198 12.198 0 01-.74-.414m0 0A12.198 12.198 0 013 12c0-1.97.543-3.814 1.49-5.4m5.16 10.224a12.198 12.198 0 006.68-1.224M12 12c0-2.2-.74-4.23-1.99-5.82m7.67 3.42a12.198 12.198 0 01-2.34 5.4" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Notre actualité</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Nouveaux ateliers, événements, publications — ne manquez rien de ce
+        que l'on prépare.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+      <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
+        <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 14.25l6-6m4.5-3.493V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.802-2.056 1.895-2.226l5.338-.745a1.125 1.125 0 011.384.745l.745 5.338a2.25 2.25 0 01-2.226 1.895z" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-lg text-ink mb-2">Réductions exclusives</h3>
+      <p class="text-[14px] text-ink-light leading-relaxed">
+        Des réductions sur nos ateliers en ligne, réservées aux abonnés de la
+        Lettre Psy.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="not-prose reveal">
+  <div class="bg-white rounded-2xl border border-border shadow-xl shadow-brand/10 p-8 md:p-10 max-w-lg mx-auto text-center">
+    <div class="font-aveton text-[22px] text-ink mb-1">
+      S'abonner à la Lettre Psy
+    </div>
+    <div class="text-sm text-ink-faint mb-6">Rejoignez les 20 000 lecteurs</div>
+    <NewsletterForm
+      client:load
+      count="20 000"
+      apiUrl="https://email-server-api-production.up.railway.app/add-contact"
+      campaignId="qD1uT"
+    />
+  </div>
+</div>
+
+<div class="not-prose mb-20 reveal mt-20">
+  <h2 class="font-pronell text-3xl md:text-4xl text-ink leading-tight mb-10 text-center">
+    Vos données sont les vôtres
+  </h2>
+  <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+    <div class="bg-surface rounded-2xl border border-border p-6 md:p-8 text-center">
+      <div class="w-14 h-14 rounded-full bg-brand/10 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414-.336.75-.75.75h-.75m0 0V4.5c0-.621-.504-1.125-1.125-1.125H3.75" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-base text-ink mb-2">Inscription gratuite</h3>
+      <p class="text-[13px] text-ink-faint leading-relaxed">
+        La Lettre Psy est entièrement gratuite.
+      </p>
+    </div>
+
+    <div class="bg-surface rounded-2xl border border-border p-6 md:p-8 text-center">
+      <div class="w-14 h-14 rounded-full bg-coral/10 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7 text-coral" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-base text-ink mb-2">Désinscription facile</h3>
+      <p class="text-[13px] text-ink-faint leading-relaxed">
+        Un clic pour se désinscrire et c'est tout !
+      </p>
+    </div>
+
+    <div class="bg-surface rounded-2xl border border-border p-6 md:p-8 text-center">
+      <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+        </svg>
+      </div>
+      <h3 class="font-aveton text-base text-ink mb-2">Données protégées</h3>
+      <p class="text-[13px] text-ink-faint leading-relaxed">
+        Vos données ne seront jamais revendues à un tiers. Jamais.
+      </p>
+    </div>
+
+  </div>
+</div>

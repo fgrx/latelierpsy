@@ -304,4 +304,17 @@ html {
   .page-prose h2:first-child {
     margin-top: 0;
   }
+
+  .page-prose .not-prose h2,
+  .page-prose .not-prose h3,
+  .page-prose .not-prose h2 p,
+  .page-prose .not-prose h3 p,
+  .page-prose .not-prose p {
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
 }
