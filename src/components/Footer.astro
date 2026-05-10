@@ -1,4 +1,18 @@
 ---
+const linkMap: Record<string, string> = {
+  "Qui sommes-nous ?": "/qui-sommes-nous",
+  Contact: "/contact",
+  Supervisions: "/supervisions",
+  FAQ: "/faq",
+  "Mentions légales": "/mentions-legales",
+  "Contenus psy": "/#contenus",
+  "La Lettre Psy": "/#newsletter",
+  Podcast: "/podcast",
+  Vidéos: "/videos",
+  Instagram: "https://www.instagram.com/catherine_la_psy/",
+  "Articles psy": "/posts",
+};
+
 const columns = [
   {
     title: "Ateliers psy",
@@ -16,7 +30,7 @@ const columns = [
   },
   {
     title: "Informations",
-    links: ["Qui sommes-nous ?", "Contact", "FAQ", "Mentions légales"],
+    links: ["Qui sommes-nous ?", "Contact", "Supervisions", "FAQ", "Mentions légales"],
   },
 ];
 
@@ -75,7 +89,7 @@ const socials = ["instagram", "youtube", "podcast"];
       <div>
         <div class="text-[10px] font-bold uppercase tracking-widest text-neutral mb-4">{col.title}</div>
         {col.links.map((l) => (
-          <a href="#" class="block text-[13px] text-white/50 hover:text-white transition-colors mb-2 font-normal text-left">
+          <a href={linkMap[l] || "#"} class="block text-[13px] text-white/50 hover:text-white transition-colors mb-2 font-normal text-left">
             {l}
           </a>
         ))}
@@ -86,7 +100,7 @@ const socials = ["instagram", "youtube", "podcast"];
   <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-3 text-[12px] text-white/25">
     <span>© 2026 Catherine la Psy — Tous droits réservés</span>
     <div class="flex gap-5">
-      <a href="#" class="text-white/25 hover:text-white/50 transition-colors">Mentions légales</a>
+      <a href="/mentions-legales" class="text-white/25 hover:text-white/50 transition-colors">Mentions légales</a>
       <a href="#" class="text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</a>
     </div>
   </div>

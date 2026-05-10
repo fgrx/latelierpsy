@@ -14,8 +14,7 @@ export const siteConfig = {
       { label: "Contact", href: "/contact" },
     ],
     actions: [
-      { label: "Connexion", href: "https://ctpsy.podia.com/login", variant: "outline" },
-      { label: "Nos ateliers →", href: "/ateliers", variant: "filled" },
+      { label: "Connexion →", href: "https://ctpsy.podia.com/login", variant: "filled" },
     ],
   },
 
@@ -30,6 +29,8 @@ export const siteConfig = {
     title: "Une newsletter bimensuelle sur la psychologie",
     text: "Pour mieux comprendre la psychologie et la psychothérapie. Gratuite, fondée sur des contenus sourcés.",
     perks: ["Contenus sourcés", "Pratique & accessible", "Bimensuelle", "Gratuite"],
+    apiUrl: "https://email-server-api-production.up.railway.app/add-contact",
+    defaultCampaignId: "qD1uT",
   },
 
   ateliers: {

@@ -26,7 +26,7 @@ const stats = await getAllStats();
     <div class="reveal reveal-d1 bg-white rounded-2xl p-8 shadow-xl shadow-brand/10">
       <div class="font-aveton text-[22px] text-ink mb-1">S'abonner à la Lettre Psy</div>
       <div class="text-sm text-ink-faint mb-6">Rejoignez les {stats.lettrePsy.value} lecteurs</div>
-      <NewsletterForm client:load count={stats.lettrePsy.value} />
+      <NewsletterForm client:load count={stats.lettrePsy.value} apiUrl={newsletter.apiUrl} campaignId={newsletter.defaultCampaignId} />
     </div>
   </div>
 </section>

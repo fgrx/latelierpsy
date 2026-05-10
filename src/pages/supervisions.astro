@@ -1,0 +1,119 @@
+---
+import { getImage } from "astro:assets";
+import { siteConfig } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.vue";
+import NewsletterForm from "../components/NewsletterForm.vue";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.png";
+
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+
+const benefits = [
+  {
+    title: "Amélioration des compétences cliniques",
+    text: "Les psychothérapeutes peuvent partager des cas complexes, recevoir des feedbacks constructifs et apprendre de nouvelles techniques ou approches thérapeutiques.",
+  },
+  {
+    title: "Soutien émotionnel",
+    text: "Le travail thérapeutique peut être émotionnellement éprouvant. La supervision de groupe offre un espace sécurisé pour exprimer des sentiments difficiles et recevoir du soutien de pairs.",
+  },
+  {
+    title: "Perspectives multiples",
+    text: "Travailler en groupe permet d'avoir accès à une variété de perspectives et d'expériences, ce qui peut enrichir la compréhension des cas et des dynamiques thérapeutiques.",
+  },
+  {
+    title: "Prévention de l'épuisement professionnel",
+    text: "La supervision régulière aide à gérer le stress et à prévenir l'épuisement professionnel en offrant un espace pour réfléchir et se ressourcer.",
+  },
+  {
+    title: "Éthique et déontologie",
+    text: "Les supervisions de groupe permettent de discuter des dilemmes éthiques et de s'assurer que les pratiques sont conformes aux standards professionnels.",
+  },
+  {
+    title: "Développement professionnel continu",
+    text: "C'est une opportunité pour les thérapeutes de continuer à apprendre et à se développer tout au long de leur carrière.",
+  },
+];
+---
+
+<BaseLayout
+  title="Supervisions de groupe — L'atelier Psy"
+  description="Des supervisions de groupe pour psychothérapeutes, animées par Catherine la Psy. Inscrivez-vous pour être tenu au courant des prochaines sessions."
+>
+  <Nav
+    client:load
+    logoSrc={logoOptimized.src}
+    navLinks={siteConfig.nav.links}
+    navActions={siteConfig.nav.actions}
+  />
+
+  <section class="relative bg-brand grain overflow-hidden">
+    <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative text-center">
+      <span
+        class="text-[11px] font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up"
+        >Supervisions</span
+      >
+      <h1
+        class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2"
+      >
+        Supervisions de groupe
+      </h1>
+      <p
+        class="text-[15px] text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3"
+      >
+        Des supervisions à plusieurs animées par Catherine la Psy
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-surface-2 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2
+        class="font-pronell text-3xl md:text-4xl text-ink leading-tight mb-10 reveal"
+      >
+        Qu'est-ce qu'apportent les supervisions de groupe ?
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {
+          benefits.map((b, i) => (
+            <div class={`reveal reveal-d${Math.min((i % 3) + 1, 3)}`}>
+              <div class="bg-white rounded-2xl border border-border p-6 md:p-8 card-lift">
+                <h3 class="font-aveton text-lg text-ink mb-3">{b.title}</h3>
+                <p class="text-[14px] text-ink-light leading-relaxed">
+                  {b.text}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 md:py-12">
+    <div class="max-w-2xl mx-auto px-6 reveal">
+      <div
+        class="bg-surface-2 rounded-2xl border border-border p-8 md:p-10 text-center"
+      >
+        <h3 class="font-pronell text-3xl text-ink mb-3">Prochaines sessions</h3>
+        <p class="text-[15px] text-ink-light leading-relaxed mb-8">
+          Pour être tenu(e) au courant des prochaines sessions de supervision de
+          groupe, saisissez votre prénom et votre email dans le formulaire
+          ci-dessous.
+        </p>
+        <NewsletterForm
+          client:load
+          count="0"
+          apiUrl={siteConfig.newsletter.apiUrl}
+          campaignId="Gl2yh"
+          buttonLabel="S'inscrire aux supervisions →"
+          successMessage="Vous serez tenu(e) au courant des prochaines sessions de supervision."
+        />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
