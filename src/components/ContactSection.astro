@@ -1,0 +1,12 @@
+---
+import ContactForm from "./ContactForm.vue";
+import { siteConfig } from "../config";
+---
+
+<div class="not-prose reveal">
+  <div class="max-w-2xl mx-auto">
+    <div class="bg-white rounded-2xl border border-surface shadow-sm p-8 md:p-10">
+      <ContactForm client:load variant="page" categories={siteConfig.contact.categories} />
+    </div>
+  </div>
+</div>

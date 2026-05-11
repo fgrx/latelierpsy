@@ -1,0 +1,23 @@
+---
+import NewsletterForm from "./NewsletterForm.vue";
+import { siteConfig } from "../config";
+---
+
+<div class="not-prose reveal">
+  <div class="bg-surface-2 rounded-2xl border border-border p-8 md:p-10 text-center max-w-2xl mx-auto">
+    <h3 class="font-pronell text-3xl text-ink mb-3">Prochaines sessions</h3>
+    <p class="text-[15px] text-ink-light leading-relaxed mb-8">
+      Pour être tenu(e) au courant des prochaines sessions de supervision de
+      groupe, saisissez votre prénom et votre email dans le formulaire
+      ci-dessous.
+    </p>
+    <NewsletterForm
+      client:load
+      count="0"
+      apiUrl={siteConfig.newsletter.apiUrl}
+      campaignId="Gl2yh"
+      buttonLabel="S'inscrire aux supervisions →"
+      successMessage="Vous serez tenu(e) au courant des prochaines sessions de supervision."
+    />
+  </div>
+</div>
