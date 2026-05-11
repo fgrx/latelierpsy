@@ -12,5 +12,12 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [vue(), mdx()]
+  integrations: [vue(), mdx()],
+
+  image: {
+    remotePatterns: [
+      { protocol: "https", hostname: "i.ytimg.com" },
+      { protocol: "https", hostname: "yt3.ggpht.com" },
+    ],
+  },
 });

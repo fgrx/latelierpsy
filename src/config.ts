@@ -9,7 +9,7 @@ export const siteConfig = {
   nav: {
     links: [
       { label: "Ateliers psy", href: "/ateliers" },
-      { label: "Contenus psy", href: "#contenus" },
+      { label: "Contenus psy", href: "/contenus" },
       { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
       { label: "Contact", href: "/contact" },
     ],
@@ -59,6 +59,12 @@ export const siteConfig = {
     title: "Bienvenue\nchez le psy",
     subtitle: "par Catherine la Psy",
     text: "Un guide bienveillant et démystificateur pour comprendre ce qui se passe vraiment en thérapie. Idéal pour celles et ceux qui hésitent à franchir le pas ou qui souhaitent mieux comprendre leur parcours thérapeutique.",
+  },
+
+  videos: {
+    surtitle: "Nos vidéos",
+    title: "Toutes nos vidéos",
+    text: "Retrouvez toutes nos vidéos Youtube sur la psychothérapie.",
   },
 
   stats: {
