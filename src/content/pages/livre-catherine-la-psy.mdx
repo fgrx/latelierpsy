@@ -1,0 +1,90 @@
+---
+title: "Bienvenue chez le psy"
+surtitle: "Livre de Catherine la Psy"
+description: "Un roman pour découvrir des concepts psy et de nouvelles psychothérapies. 5 psys pour 22 séances romancées à la fois drôles, pleines d'émotions et surtout crédibles."
+---
+
+import { Image } from "astro:assets";
+import cover from "./images/cover-bienvenue-chez-le-psy.webp";
+import dessin from "./images/dessing-bienvenue-chez-le-psy.webp";
+
+<div class="not-prose reveal">
+  <div class="grid md:grid-cols-[1fr_320px] gap-12 md:gap-20 items-center">
+    <div>
+      <h2 class="font-pronell text-3xl md:text-4xl text-ink leading-tight mb-6">
+        Vous avez envie d'aller voir un psy mais vous ne savez pas lequel
+        choisir ?
+      </h2>
+      <p class="text-[15px] text-ink-light leading-relaxed">
+        C'est normal, il y a un grand nombre d'approches et cela peut être
+        décourageant. Avec ce livre romancé, vous allez découvrir plusieurs
+        formes de psychothérapies dans des séances romancées à la fois drôles,
+        pleines d'émotions et surtout crédibles.
+      </p>
+    </div>
+    <div class="relative mx-auto md:mx-0" style="max-width: 320px">
+      <div class="relative rounded-2xl shadow-2xl overflow-hidden card-lift">
+        <Image
+          src={cover}
+          format="webp"
+          alt="Couverture du livre Bienvenue chez le psy"
+          class="w-full h-auto block"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="not-prose mt-20 reveal">
+  <div class="grid md:grid-cols-[320px_1fr] gap-12 md:gap-20 items-center">
+    <div class="relative mx-auto md:mx-0" style="max-width: 320px">
+      <div class="relative rounded-2xl shadow-2xl overflow-hidden card-lift">
+        <Image
+          src={dessin}
+          format="webp"
+          alt="Les 5 psys du livre Bienvenue chez le psy"
+          class="w-full h-auto block"
+        />
+      </div>
+    </div>
+    <div>
+      <h2 class="font-pronell text-3xl md:text-4xl text-ink leading-tight mb-6">
+        5 psys pour 22 séances de thérapie romancées
+      </h2>
+      <p class="text-[15px] text-ink-light leading-relaxed">
+        Dans ce livre, faites la connaissance de 5 psys très différents et de
+        leurs patients à travers 21 séances de psychothérapie.
+      </p>
+      <p class="text-[15px] text-ink-light leading-relaxed mt-4">
+        À chaque séance, un chapitre et à la fin une explication d'un concept
+        psy utilisé lors de la thérapie pour mieux comprendre la stratégie mise
+        en œuvre par le psy.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="not-prose mt-20 reveal">
+  <div class="bg-coral rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+    <div class="animate-float absolute -top-20 -right-20 w-80 h-80 rounded-full bg-white/5 pointer-events-none"></div>
+    <div class="animate-float absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-white/5 pointer-events-none" style="animation-delay: 1.5s"></div>
+
+    <div class="relative">
+      <h2 class="font-pronell text-3xl md:text-4xl text-white leading-tight mb-6">
+        A la fois un roman et un outil pour découvrir le monde de la psychothérapie
+      </h2>
+      <p class="text-[15px] text-white/85 leading-relaxed max-w-2xl mx-auto">
+        Vous découvrirez l'univers de la psychothérapie avec des psys très différents mais surtout très humains. Et comme nul n'est parfait, il leur arrive des aventures en séances et s'en servent pour faire avancer la thérapie.
+      </p>
+      <p class="text-[15px] text-white/85 leading-relaxed max-w-2xl mx-auto mt-4">
+        L'ouvrage est superbement illustré par notre amie Psyimage à qui on doit aussi les Cartes Psy.
+      </p>
+      <div class="mt-10">
+        <a href="https://www.deboecksuperieur.com/ouvrage/9782807348172-bienvenue-chez-le-psy" class="btn-shine text-[14px] font-semibold px-8 py-3 rounded-full bg-white text-coral hover:bg-red-50 transition-colors shadow-lg inline-block no-underline">
+          Lire le premier chapitre & commander →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
