@@ -8,19 +8,18 @@ const contents = [
     id: "youtube",
     label: "YouTube",
     title: "Notre chaîne YouTube",
-    desc: "Vidéos éducatives sur des thèmes précis pour vous aider dans votre travail personnel.",
+    desc: "On y aborde des thèmes précis pour vous aider dans votre travail personnel.",
     cta: "Voir la chaîne",
     iconBg: "bg-red-600",
     labelColor: "text-red-400",
-    iconPath:
-      '<path d="M10 16.5l6-4.5-6-4.5v9z"/>',
+    iconPath: '<path d="M10 16.5l6-4.5-6-4.5v9z"/>',
     badge: true,
   },
   {
     id: "podcast",
     label: "Podcast",
     title: "Le podcast",
-    desc: "Des conversations ouvertes pour explorer certains sujets de psychologie de façon plus poussée.",
+    desc: "Des conversations ouvertes pour explorer certains sujets de psychothérapie de façon plus poussée.",
     cta: "Écouter le podcast",
     ctaHref: "/podcast",
     iconBg: "bg-coral",
@@ -32,7 +31,7 @@ const contents = [
     id: "newsletter",
     label: "Newsletter",
     title: "La Lettre Psy",
-    desc: "Chaque mois, des ressources sourcées et scientifiques sur la psychologie dans votre boîte mail.",
+    desc: "Chaque mois, des ressources sourcées et scientifiques sur la psychologie et la psychothérapie dans votre boîte mail.",
     cta: "S'abonner gratuitement",
     iconBg: "bg-gold",
     iconText: "text-ink",
@@ -45,50 +44,108 @@ const contents = [
 const waveHeights = [6, 11, 8, 15, 10, 13, 7, 12, 9];
 ---
 
-<section id="contenus" class="bg-brand py-16 md:py-24 relative grain overflow-hidden">
-  <div class="dot-pattern absolute inset-0 pointer-events-none opacity-50"></div>
+<section
+  id="contenus"
+  class="bg-brand py-16 md:py-24 relative grain overflow-hidden"
+>
+  <div class="dot-pattern absolute inset-0 pointer-events-none opacity-50">
+  </div>
   <div class="max-w-6xl mx-auto px-6 relative">
     <div class="text-center mb-12 reveal">
-      <span class="text-[11px] font-bold tracking-widest uppercase text-neutral/70 block mb-3">{section.surtitle}</span>
-      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-white mb-2">{section.title}</h2>
+      <span
+        class="text-[11px] font-bold tracking-widest uppercase text-neutral/70 block mb-3"
+        >{section.surtitle}</span
+      >
+      <h2 class="font-pronell text-3xl md:text-4xl font-normal text-white mb-2">
+        {section.title}
+      </h2>
       <p class="text-[15px] text-white/60">{section.text}</p>
     </div>
 
     <div class="grid sm:grid-cols-3 gap-5">
-      {contents.map((c, i) => (
-        <div class:list={["reveal", i === 0 ? "reveal-d1" : i === 1 ? "reveal-d2" : "reveal-d3", "card-lift bg-white/8 border border-white/12 rounded-2xl overflow-hidden cursor-pointer group"]}>
-          <div class="h-28 bg-ink flex items-center justify-center relative">
-            <div class:list={["w-14 h-14", c.id === "youtube" ? "rounded-[14px]" : "rounded-full", c.iconBg, "flex items-center justify-center group-hover:scale-110 transition-transform duration-300"]}>
-              <svg class:list={["w-6 h-6", c.iconText || "text-white"]} fill={c.id === "youtube" ? "currentColor" : "none"} stroke={c.id === "youtube" ? "none" : "currentColor"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" set:html={c.iconPath} />
-            </div>
-            {c.badge && (
-              <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-red-600/20 rounded-md px-2 py-1">
-                <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-red-500 block" />
-                <span class="text-[9px] font-bold text-white tracking-widest">YOUTUBE</span>
-              </span>
-            )}
-            {c.id === "podcast" && (
-              <div class="absolute bottom-2.5 left-4 flex items-end gap-0.5">
-                {waveHeights.map((h) => (
-                  <div style={`height:${h}px`} class="w-0.5 bg-white/20 rounded-sm" />
-                ))}
+      {
+        contents.map((c, i) => (
+          <div
+            class:list={[
+              "reveal",
+              i === 0 ? "reveal-d1" : i === 1 ? "reveal-d2" : "reveal-d3",
+              "card-lift bg-white/8 border border-white/12 rounded-2xl overflow-hidden cursor-pointer group",
+            ]}
+          >
+            <div class="h-28 bg-ink flex items-center justify-center relative">
+              <div
+                class:list={[
+                  "w-14 h-14",
+                  c.id === "youtube" ? "rounded-[14px]" : "rounded-full",
+                  c.iconBg,
+                  "flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                ]}
+              >
+                <svg
+                  class:list={["w-6 h-6", c.iconText || "text-white"]}
+                  fill={c.id === "youtube" ? "currentColor" : "none"}
+                  stroke={c.id === "youtube" ? "none" : "currentColor"}
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  viewBox="0 0 24 24"
+                  set:html={c.iconPath}
+                />
               </div>
-            )}
+              {c.badge && (
+                <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-red-600/20 rounded-md px-2 py-1">
+                  <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-red-500 block" />
+                  <span class="text-[9px] font-bold text-white tracking-widest">
+                    YOUTUBE
+                  </span>
+                </span>
+              )}
+              {c.id === "podcast" && (
+                <div class="absolute bottom-2.5 left-4 flex items-end gap-0.5">
+                  {waveHeights.map((h) => (
+                    <div
+                      style={`height:${h}px`}
+                      class="w-0.5 bg-white/20 rounded-sm"
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            <div class="p-6">
+              <div
+                class:list={[
+                  "text-[10px] font-bold uppercase tracking-widest mb-2",
+                  c.labelColor,
+                ]}
+              >
+                {c.label}
+              </div>
+              <div class="font-aveton text-[19px] text-white mb-2">
+                {c.title}
+              </div>
+              <div class="text-[13px] text-white/60 leading-relaxed mb-5">
+                {c.desc}
+              </div>
+              <a
+                href={c.ctaHref || "#"}
+                class="group/link flex items-center gap-1.5 text-[12px] font-semibold text-neutral group-hover/link:gap-3 transition-all"
+              >
+                {c.cta}
+                <svg
+                  class="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div class="p-6">
-            <div class:list={["text-[10px] font-bold uppercase tracking-widest mb-2", c.labelColor]}>{c.label}</div>
-            <div class="font-aveton text-[19px] text-white mb-2">{c.title}</div>
-            <div class="text-[13px] text-white/60 leading-relaxed mb-5">{c.desc}</div>
-            <a href={c.ctaHref || "#"} class="group/link flex items-center gap-1.5 text-[12px] font-semibold text-neutral group-hover/link:gap-3 transition-all">
-              {c.cta}
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
