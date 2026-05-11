@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../config";
 import ContactBubble from "../components/ContactBubble.vue";
+import CookieConsent from "../components/CookieConsent.vue";
 import "../styles/global.css";
 
 interface Props {
@@ -23,18 +24,24 @@ const description = Astro.props.description ?? siteConfig.seo.description;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     <title>{title}</title>
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-6W78WWF32Y"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-6W78WWF32Y');
+    <script is:inline>
+      if (localStorage.getItem('cookie_consent') === 'accepted') {
+        var s1 = document.createElement('script');
+        s1.type = 'text/partytown';
+        s1.src = 'https://www.googletagmanager.com/gtag/js?id=G-6W78WWF32Y';
+        document.head.appendChild(s1);
+        var s2 = document.createElement('script');
+        s2.type = 'text/partytown';
+        s2.textContent = 'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-6W78WWF32Y");';
+        document.head.appendChild(s2);
+      }
     </script>
   </head>
   <body class="font-poppins text-ink bg-white overflow-x-hidden">
     <slot />
 
     <ContactBubble client:load categories={siteConfig.contact.categories} />
+    <CookieConsent client:load />
 
     <script>
       const observer = new IntersectionObserver(
