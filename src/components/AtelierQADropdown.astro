@@ -8,7 +8,7 @@ const { title } = Astro.props;
 
 <details class="qa-dropdown bg-white rounded-xl border border-border overflow-hidden my-3">
   <summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer text-left hover:bg-surface/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-    <span class="text-[14px] font-medium text-ink leading-snug">{title}</span>
+    <span class="text-sm font-medium text-ink leading-snug">{title}</span>
     <svg
       class="qa-icon w-4 h-4 text-ink-faint shrink-0 transition-transform duration-300"
       fill="none"
@@ -20,7 +20,7 @@ const { title } = Astro.props;
     </svg>
   </summary>
   <div class="qa-wrapper">
-    <div class="qa-inner px-6 pb-5 text-[14px] text-ink-light leading-relaxed">
+    <div class="qa-inner px-6 pb-5 text-sm text-ink-light leading-relaxed">
       <slot />
     </div>
   </div>

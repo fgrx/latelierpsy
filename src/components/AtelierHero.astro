@@ -42,7 +42,7 @@ const style = TAG_STYLES[tag] || { bg: "bg-surface", text: "text-brand" };
         <div class="flex flex-wrap items-center gap-2 mb-5 animate-fade-up">
           <span
             class:list={[
-              "inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider",
+              "inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider",
               style.bg,
               style.text,
             ]}
@@ -51,14 +51,14 @@ const style = TAG_STYLES[tag] || { bg: "bg-surface", text: "text-brand" };
           </span>
           {
             isForAll && (
-              <span class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
+              <span class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
                 Atelier pour tous·tes
               </span>
             )
           }
           {
             isPro && (
-              <span class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
+              <span class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
                 Pour les professionnel·les
               </span>
             )
@@ -72,7 +72,7 @@ const style = TAG_STYLES[tag] || { bg: "bg-surface", text: "text-brand" };
         </h1>
 
         <p
-          class="text-[15px] text-white/70 leading-relaxed mt-5 animate-fade-up-3"
+          class="text-base text-white/70 leading-relaxed mt-5 animate-fade-up-3"
         >
           {description}
         </p>
@@ -81,7 +81,7 @@ const style = TAG_STYLES[tag] || { bg: "bg-surface", text: "text-brand" };
           infoHero && (
             <div class="mt-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2.5 animate-fade-up-3">
               <span class="w-2 h-2 rounded-full bg-coral animate-pulse-dot" />
-              <span class="text-[13px] text-white font-medium">{infoHero}</span>
+              <span class="text-sm text-white font-medium">{infoHero}</span>
             </div>
           )
         }

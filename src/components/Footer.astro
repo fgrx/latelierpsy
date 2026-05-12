@@ -83,7 +83,7 @@ const columns = [
           />
         </a>
       </div>
-      <p class="text-[13px] text-white/45 leading-relaxed mb-5 max-w-[220px]">
+      <p class="text-sm text-white/45 leading-relaxed mb-5 max-w-[220px]">
         Des ateliers de psychothérapie en ligne pour démocratiser la
         psychothérapie et commencer le travail chez vous.
       </p>
@@ -138,13 +138,13 @@ const columns = [
     {
       columns.map((col) => (
         <div>
-          <div class="text-[10px] font-bold uppercase tracking-widest text-neutral mb-4">
+          <div class="text-2xs font-bold uppercase tracking-widest text-neutral mb-4">
             {col.title}
           </div>
           {col.links.map((l) => (
             <a
               href={linkMap[l] || "#"}
-              class="block text-[13px] text-white/50 hover:text-white transition-colors mb-2 font-normal text-left"
+              class="block text-sm text-white/50 hover:text-white transition-colors mb-2 font-normal text-left"
             >
               {l}
             </a>
@@ -155,7 +155,7 @@ const columns = [
   </div>
 
   <div
-    class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-3 text-[12px] text-white/25"
+    class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between items-center gap-3 text-xs text-white/25"
   >
     <span>© {currentYear} L'atelier psy — Tous droits réservés</span>
     <div class="flex gap-5">

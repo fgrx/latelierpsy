@@ -6,7 +6,7 @@
         :key="f.value"
         @click="filter = f.value"
         :class="[
-          'text-[13px] font-semibold px-5 py-2 rounded-full transition-all duration-300',
+          'text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300',
           filter === f.value
             ? 'bg-brand text-white shadow-md shadow-brand/20'
             : 'border-[1.5px] border-brand text-brand hover:bg-surface'
@@ -18,7 +18,7 @@
 
     <template v-if="filtered.length === 0">
       <div class="text-center py-16">
-        <p class="text-ink-light text-[15px]">Aucun atelier ne correspond à ce filtre pour le moment.</p>
+        <p class="text-ink-light text-base">Aucun atelier ne correspond à ce filtre pour le moment.</p>
       </div>
     </template>
 
@@ -45,23 +45,23 @@
             </div>
             <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
               <div class="flex flex-wrap items-center gap-2 mb-4">
-                <span :class="['inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider', tagStyle(featured.tag).bg, tagStyle(featured.tag).text]">
+                <span :class="['inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider', tagStyle(featured.tag).bg, tagStyle(featured.tag).text]">
                   {{ featured.tag }}
                 </span>
-                <span v-if="featured.isPro" class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
+                <span v-if="featured.isPro" class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
                   Pour les professionnel·les
                 </span>
-                <span v-if="featured.isForAll" class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
+                <span v-if="featured.isForAll" class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
                   Pour tous·tes
                 </span>
-                <span class="inline-flex items-center gap-1.5 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-brand text-white">
+                <span class="inline-flex items-center gap-1.5 text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-brand text-white">
                   <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse-dot"></span>
                   Nouveau
                 </span>
               </div>
-              <h2 class="font-aveton text-2xl md:text-[28px] leading-snug text-ink mb-3">{{ featured.title }}</h2>
-              <p class="text-[15px] leading-relaxed text-ink-light mb-6">{{ featured.description }}</p>
-              <span class="btn-shine inline-flex items-center gap-2 self-start text-[13px] font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
+              <h2 class="font-aveton text-2xl md:text-3xl leading-snug text-ink mb-3">{{ featured.title }}</h2>
+              <p class="text-base leading-relaxed text-ink-light mb-6">{{ featured.description }}</p>
+              <span class="btn-shine inline-flex items-center gap-2 self-start text-sm font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
                 Découvrir l'atelier
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -93,19 +93,19 @@
             </div>
             <div class="p-6">
               <div class="flex flex-wrap items-center gap-2 mb-3">
-                <span :class="['inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider', tagStyle(a.tag).bg, tagStyle(a.tag).text]">
+                <span :class="['inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider', tagStyle(a.tag).bg, tagStyle(a.tag).text]">
                   {{ a.tag }}
                 </span>
-                <span v-if="a.isPro" class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
+                <span v-if="a.isPro" class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-gold text-ink">
                   Pour les professionnel·les
                 </span>
-                <span v-if="a.isForAll && !a.isPro" class="inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
+                <span v-if="a.isForAll && !a.isPro" class="inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider bg-coral text-white">
                   Pour tous·tes
                 </span>
               </div>
-              <div class="font-aveton text-[19px] leading-snug text-ink mb-2">{{ a.title }}</div>
-              <div class="text-[13px] leading-relaxed text-ink-faint mb-5">{{ a.description }}</div>
-              <span class="flex items-center gap-2 text-[13px] font-semibold text-brand group-hover:gap-3 transition-all">
+              <div class="font-aveton text-xl leading-snug text-ink mb-2">{{ a.title }}</div>
+              <div class="text-sm leading-relaxed text-ink-faint mb-5">{{ a.description }}</div>
+              <span class="flex items-center gap-2 text-sm font-semibold text-brand group-hover:gap-3 transition-all">
                 En savoir plus
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />

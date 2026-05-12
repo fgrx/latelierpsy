@@ -23,9 +23,9 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
 <section id="ateliers" class="bg-white py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12 reveal">
-      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">{section.surtitle}</span>
+      <span class="text-xs font-bold tracking-widest uppercase text-ink-faint block mb-3">{section.surtitle}</span>
       <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink mb-3">{section.title}</h2>
-      <p class="text-[15px] text-ink-light leading-relaxed max-w-lg mx-auto">
+      <p class="text-base text-ink-light leading-relaxed max-w-lg mx-auto">
         {section.text}
       </p>
     </div>
@@ -64,12 +64,12 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
               </div>
             )}
             <div class="p-6">
-              <span class:list={["inline-flex text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3", style.bg, style.text]}>
+              <span class:list={["inline-flex text-2xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3", style.bg, style.text]}>
                 {a.data.tag}
               </span>
-              <div class="font-aveton text-[19px] leading-snug text-ink mb-2">{a.data.title}</div>
-              <div class="text-[13px] leading-relaxed text-ink-faint mb-5">{a.data.description}</div>
-              <span class="group flex items-center gap-2 text-[13px] font-semibold text-brand">
+              <div class="font-aveton text-xl leading-snug text-ink mb-2">{a.data.title}</div>
+              <div class="text-sm leading-relaxed text-ink-faint mb-5">{a.data.description}</div>
+              <span class="group flex items-center gap-2 text-sm font-semibold text-brand">
                 En savoir plus
                 <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -83,7 +83,7 @@ const TAG_STYLES: Record<string, { bg: string; text: string }> = {
     </div>
 
     <div class="text-center mt-10 reveal">
-      <a href="/ateliers" class="btn-shine text-[14px] font-semibold px-8 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
+      <a href="/ateliers" class="btn-shine text-sm font-semibold px-8 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
         Voir tous les ateliers →
       </a>
     </div>

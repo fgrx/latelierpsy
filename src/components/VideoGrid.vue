@@ -102,7 +102,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
       </div>
       <h3 class="font-aveton text-xl text-ink mb-2">Vidéos indisponibles</h3>
       <p
-        class="text-[14px] text-ink-faint max-w-md mx-auto leading-relaxed"
+        class="text-sm text-ink-faint max-w-md mx-auto leading-relaxed"
       >
         Les vidéos YouTube ne peuvent pas être chargées pour le moment.
         Vérifiez la configuration de la clé API YouTube pour afficher les
@@ -128,7 +128,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
         </svg>
       </div>
       <h3 class="font-aveton text-xl text-ink mb-2">Aucune vidéo</h3>
-      <p class="text-[14px] text-ink-faint">
+      <p class="text-sm text-ink-faint">
         Aucune vidéo n'a été trouvée sur la chaîne.
       </p>
     </div>
@@ -166,7 +166,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
               </div>
             </div>
             <span
-              class="absolute bottom-2 right-2 bg-black/75 text-white text-[11px] font-medium px-1.5 py-0.5 rounded"
+              class="absolute bottom-2 right-2 bg-black/75 text-white text-xs font-medium px-1.5 py-0.5 rounded"
             >
               YouTube
             </span>
@@ -174,11 +174,11 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
 
           <div class="p-5">
             <h3
-              class="font-aveton text-[17px] text-ink leading-snug mb-1.5 line-clamp-2"
+              class="font-aveton text-lg text-ink leading-snug mb-1.5 line-clamp-2"
             >
               {{ video.title }}
             </h3>
-            <p class="text-[12px] text-ink-faint mb-3">
+            <p class="text-xs text-ink-faint mb-3">
               {{ formatDate(video.publishedAt) }}
             </p>
             <div>
@@ -187,14 +187,14 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
                   isLong(video.description) && !expanded.has(video.id)
                     ? 'line-clamp-3'
                     : '',
-                  'text-[13px] text-ink-light leading-relaxed whitespace-pre-line',
+                  'text-sm text-ink-light leading-relaxed whitespace-pre-line',
                 ]"
               >
                 {{ video.description || "Aucune description" }}
               </p>
               <button
                 v-if="isLong(video.description)"
-                class="mt-1.5 text-[12px] font-semibold text-brand hover:text-brand-dark transition-colors"
+                class="mt-1.5 text-xs font-semibold text-brand hover:text-brand-dark transition-colors"
                 @click.stop="toggleExpand(video.id)"
               >
                 {{
@@ -213,7 +213,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
         <a
           v-if="pagination.prevUrl"
           :href="pagination.prevUrl"
-          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-medium text-ink-light hover:text-brand hover:bg-surface transition-all"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-ink-light hover:text-brand hover:bg-surface transition-all"
         >
           <svg
             class="w-4 h-4"
@@ -228,7 +228,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
         </a>
         <span
           v-else
-          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-medium text-ink-faint/40 cursor-not-allowed"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-ink-faint/40 cursor-not-allowed"
         >
           <svg
             class="w-4 h-4"
@@ -246,13 +246,13 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
           <template v-for="(p, i) in pageNumbers" :key="i">
             <span
               v-if="p === '…'"
-              class="px-1.5 text-ink-faint text-[13px]"
+              class="px-1.5 text-ink-faint text-sm"
             >…</span>
             <a
               v-else
               :href="pageUrl(p as number)"
               :class="[
-                'w-9 h-9 rounded-lg flex items-center justify-center text-[13px] font-medium transition-all',
+                'w-9 h-9 rounded-lg flex items-center justify-center text-sm font-medium transition-all',
                 p === pagination.currentPage
                   ? 'bg-brand text-white shadow-md'
                   : 'text-ink-light hover:bg-surface hover:text-brand',
@@ -266,7 +266,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
         <a
           v-if="pagination.nextUrl"
           :href="pagination.nextUrl"
-          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-medium text-ink-light hover:text-brand hover:bg-surface transition-all"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-ink-light hover:text-brand hover:bg-surface transition-all"
         >
           Suivant
           <svg
@@ -281,7 +281,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
         </a>
         <span
           v-else
-          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-medium text-ink-faint/40 cursor-not-allowed"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-ink-faint/40 cursor-not-allowed"
         >
           Suivant
           <svg
@@ -344,7 +344,7 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
               :href="`https://www.youtube.com/watch?v=${activeVideoId}`"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-[13px] font-medium text-white/60 hover:text-white transition-colors"
+              class="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors"
             >
               Voir sur YouTube
               <svg

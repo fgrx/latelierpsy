@@ -28,7 +28,7 @@ const logoOptimized = await getImage({ src: logo, format: "webp" });
     <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
     <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative text-center">
       {page.data.surtitle && (
-        <span class="text-[11px] font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">
+        <span class="text-xs font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">
           {page.data.surtitle}
         </span>
       )}
@@ -36,7 +36,7 @@ const logoOptimized = await getImage({ src: logo, format: "webp" });
         {page.data.title}
       </h1>
       {page.data.description && (
-        <p class="text-[15px] text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3">{page.data.description}</p>
+        <p class="text-base text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3">{page.data.description}</p>
       )}
     </div>
   </section>

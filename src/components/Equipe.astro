@@ -18,16 +18,16 @@ const section = siteConfig.equipe;
 <section id="equipe" class="bg-surface-2 py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
     <div class="reveal">
-      <span class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3">{section.surtitle}</span>
+      <span class="text-xs font-bold tracking-widest uppercase text-ink-faint block mb-3">{section.surtitle}</span>
       <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink leading-tight mb-5">
         {section.title}
       </h2>
       {section.text.map((p, i) => (
-        <p class:list={["text-[15px] leading-relaxed text-ink-light", i < section.text.length - 1 ? "mb-4" : "mb-8"]}>
+        <p class:list={["text-base leading-relaxed text-ink-light", i < section.text.length - 1 ? "mb-4" : "mb-8"]}>
           {p}
         </p>
       ))}
-      <a href="/qui-sommes-nous" class="btn-shine text-[14px] font-semibold px-7 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
+      <a href="/qui-sommes-nous" class="btn-shine text-sm font-semibold px-7 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20">
         En savoir plus →
       </a>
     </div>
@@ -46,8 +46,8 @@ const section = siteConfig.equipe;
             />
           </div>
           <div class="p-4 bg-white">
-            <div class="font-pronell text-[22px] text-ink mb-1">{p.name}</div>
-            <div class="text-[12px] text-ink-faint leading-snug">{p.role}</div>
+            <div class="font-pronell text-xl text-ink mb-1">{p.name}</div>
+            <div class="text-xs text-ink-faint leading-snug">{p.role}</div>
           </div>
         </div>
       ))}

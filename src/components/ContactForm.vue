@@ -18,7 +18,7 @@
       </svg>
     </div>
     <div class="font-aveton text-2xl text-ink mb-2">Message envoyé !</div>
-    <p class="text-[14px] text-ink-light">
+    <p class="text-sm text-ink-light">
       Nous vous répondrons dans les plus brefs délais.
     </p>
   </div>
@@ -47,10 +47,10 @@
     <div class="font-aveton text-xl text-ink mb-4">
       Consultations individuelles
     </div>
-    <p class="text-[14px] text-ink-light leading-relaxed mb-3">
+    <p class="text-sm text-ink-light leading-relaxed mb-3">
       Catherine ne propose plus de consultation en présentiel ou en visio.
     </p>
-    <p class="text-[14px] text-ink-light leading-relaxed mb-5">
+    <p class="text-sm text-ink-light leading-relaxed mb-5">
       En revanche, Fabien propose des accompagnements en hypnose Eriksonienne et
       en thérapie Mosaic (proche de l'EMDR).
     </p>
@@ -58,7 +58,7 @@
       href="https://therapiefgx.com"
       target="_blank"
       rel="noopener noreferrer"
-      class="btn-shine inline-flex items-center gap-2 text-[13px] font-semibold px-6 py-3 rounded-full bg-brand-dark text-white hover:bg-brand-dark/90 transition-colors shadow-md shadow-brand-dark/20"
+      class="btn-shine inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-brand-dark text-white hover:bg-brand-dark/90 transition-colors shadow-md shadow-brand-dark/20"
     >
       En savoir plus sur therapiefgx.com
       <svg
@@ -99,19 +99,19 @@
       </svg>
     </div>
     <div class="font-aveton text-xl text-ink mb-4">Supervisions</div>
-    <p class="text-[14px] text-ink-light leading-relaxed mb-3">
+    <p class="text-sm text-ink-light leading-relaxed mb-3">
       Catherine ne prend plus de nouvelles supervisions individuelles.
     </p>
-    <p class="text-[14px] text-ink-light leading-relaxed mb-5">
+    <p class="text-sm text-ink-light leading-relaxed mb-5">
       En revanche elle proposera prochainement des supervisions de groupe.
     </p>
-    <p class="text-[14px] text-ink-light leading-relaxed mb-5">
+    <p class="text-sm text-ink-light leading-relaxed mb-5">
       Pour être tenu au courant des prochaines supervisions de groupe,
       inscrivez-vous à la mailing list dédiée en cliquant sur :
     </p>
     <a
       href="/supervisions"
-      class="btn-shine inline-flex items-center gap-2 text-[13px] font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20"
+      class="btn-shine inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-md shadow-brand/20"
     >
       S'inscrire aux supervisions de groupe
       <svg
@@ -140,14 +140,14 @@
     <input name="bot-field" hidden />
 
     <div>
-      <label class="block font-aveton text-[14px] text-ink mb-1.5"
+      <label class="block font-aveton text-sm text-ink mb-1.5"
         >Catégorie</label
       >
       <select
         v-model="form.category"
         name="category"
         required
-        class="block w-full py-3 px-4 text-[14px] text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 appearance-none cursor-pointer"
+        class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 appearance-none cursor-pointer"
       >
         <option v-for="cat in categories" :key="cat.value" :value="cat.value">
           {{ cat.label }}
@@ -156,7 +156,7 @@
     </div>
 
     <div>
-      <label class="block font-aveton text-[14px] text-ink mb-1.5"
+      <label class="block font-aveton text-sm text-ink mb-1.5"
         >Objet de votre email</label
       >
       <input
@@ -165,12 +165,12 @@
         name="subject"
         required
         placeholder="L'objet de votre message"
-        class="block w-full py-3 px-4 text-[14px] text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
+        class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
       />
     </div>
 
     <div>
-      <label class="block font-aveton text-[14px] text-ink mb-1.5"
+      <label class="block font-aveton text-sm text-ink mb-1.5"
         >Votre nom</label
       >
       <input
@@ -179,12 +179,12 @@
         name="name"
         required
         placeholder="Prénom Nom"
-        class="block w-full py-3 px-4 text-[14px] text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
+        class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
       />
     </div>
 
     <div>
-      <label class="block font-aveton text-[14px] text-ink mb-1.5"
+      <label class="block font-aveton text-sm text-ink mb-1.5"
         >Votre adresse email</label
       >
       <input
@@ -193,12 +193,12 @@
         name="email"
         required
         placeholder="votre@email.fr"
-        class="block w-full py-3 px-4 text-[14px] text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
+        class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
       />
     </div>
 
     <div>
-      <label class="block font-aveton text-[14px] text-ink mb-1.5"
+      <label class="block font-aveton text-sm text-ink mb-1.5"
         >Votre message</label
       >
       <textarea
@@ -207,17 +207,17 @@
         required
         rows="6"
         placeholder="Écrivez votre message ici..."
-        class="block w-full py-3 px-4 text-[14px] text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 resize-none placeholder:text-ink-faint/50"
+        class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 resize-none placeholder:text-ink-faint/50"
       ></textarea>
     </div>
 
-    <p v-if="error" class="text-[13px] text-red-500">{{ error }}</p>
+    <p v-if="error" class="text-sm text-red-500">{{ error }}</p>
 
     <button
       type="submit"
       :disabled="!isValid || submitting"
       :class="[
-        'btn-shine w-full text-[14px] font-semibold py-3 rounded-full transition-all duration-300',
+        'btn-shine w-full text-sm font-semibold py-3 rounded-full transition-all duration-300',
         isValid && !submitting
           ? 'bg-brand text-white hover:bg-brand-dark shadow-md shadow-brand/20'
           : 'bg-border text-ink-faint cursor-not-allowed',

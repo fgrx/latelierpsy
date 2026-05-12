@@ -22,7 +22,7 @@
           :key="action.label"
           :href="action.href"
           :class="[
-            'text-[13px] font-semibold py-2 rounded-full transition-all duration-200',
+            'text-sm font-semibold py-2 rounded-full transition-all duration-200',
             action.variant === 'outline'
               ? 'px-4 border-[1.5px] border-brand text-brand hover:bg-surface'
               : 'btn-shine px-5 bg-brand text-white hover:bg-brand-dark'

@@ -6,7 +6,7 @@
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center mb-12">
         <span
-          class="text-[11px] font-bold tracking-widest uppercase text-ink-faint block mb-3"
+          class="text-xs font-bold tracking-widest uppercase text-ink-faint block mb-3"
           >FAQ</span
         >
         <h2 class="font-aveton text-2xl md:text-3xl text-ink">
@@ -24,7 +24,7 @@
             @click="openIndex = openIndex === i ? -1 : i"
             class="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-surface/50 transition-colors"
           >
-            <span class="text-[14px] font-medium text-ink leading-snug">{{
+            <span class="text-sm font-medium text-ink leading-snug">{{
               q
             }}</span>
             <svg
@@ -54,7 +54,7 @@
           >
             <div v-if="openIndex === i" class="faq-answer">
               <div class="px-6 pb-5">
-                <p class="text-[13px] text-ink-light leading-relaxed">
+                <p class="text-sm text-ink-light leading-relaxed">
                   Contactez-nous via le
                   <a
                     href="/contact"

@@ -14,31 +14,30 @@ const stats = await getAllStats();
 const hero = siteConfig.hero;
 ---
 
-<section class="relative bg-brand grain overflow-hidden">
+<section class="relative bg-brand grain">
   <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center">
-    <div class="relative flex items-center justify-center order-2 md:order-1 animate-fade-in">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center">
+    <div class="relative order-2 md:order-1 md:flex-1 animate-fade-in">
       <Image
         src={PHOTO_CATE_FAB}
         alt="Catherine et Fabien"
         width={750}
         height={500}
         format="webp"
-        class="w-full h-auto object-contain block"
-        style="max-height: 90vh"
+        class="w-full h-auto block"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-brand pointer-events-none hidden md:block"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-brand via-transparent to-transparent pointer-events-none md:hidden"></div>
     </div>
 
-    <div class="order-1 md:order-2 px-6 md:px-12 py-16 md:py-20 flex flex-col justify-center">
+    <div class="order-1 md:order-2 md:flex-1 px-6 md:px-12 py-16 md:py-20 flex flex-col justify-center">
       <div class="flex items-center gap-3 mb-5 animate-fade-up">
         <span class="block w-8 h-0.5 bg-neutral shrink-0"></span>
-        <span class="text-[11px] font-bold tracking-widest uppercase text-neutral">
+        <span class="text-xs font-bold tracking-widest uppercase text-neutral">
           {hero.surtitle}
         </span>
       </div>
-      <h1 class="font-pronell text-4xl md:text-5xl lg:text-[58px] font-normal leading-[1.05] text-white mb-6 tracking-tight animate-fade-up-2">
+      <h1 class="font-pronell text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] text-white mb-6 tracking-tight animate-fade-up-2">
         {hero.title}
       </h1>
       <p class="text-base md:text-lg leading-relaxed text-white/70 mb-10 max-w-md animate-fade-up-3">
@@ -47,13 +46,13 @@ const hero = siteConfig.hero;
       <div class="flex flex-wrap gap-3 mb-12 animate-fade-up-4">
         <a
           href="#ateliers"
-          class="btn-shine text-[15px] font-semibold px-8 py-3.5 rounded-full bg-coral text-white hover:bg-red-500 transition-colors shadow-lg shadow-coral/30"
+          class="btn-shine text-base font-semibold px-8 py-3.5 rounded-full bg-coral text-white hover:bg-red-500 transition-colors shadow-lg shadow-coral/30"
         >
           Voir nos ateliers
         </a>
         <a
           href="#newsletter"
-          class="text-[15px] font-medium px-6 py-3.5 rounded-full bg-white/10 text-white border border-white/25 hover:bg-white/20 transition-all duration-200"
+          class="text-base font-medium px-6 py-3.5 rounded-full bg-white/10 text-white border border-white/25 hover:bg-white/20 transition-all duration-200"
         >
           La Lettre Psy gratuite
         </a>
