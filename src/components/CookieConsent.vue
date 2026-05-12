@@ -33,7 +33,7 @@
   <button
     v-if="!showBanner && hasChosen"
     @click="openBanner"
-    class="fixed bottom-4 right-4 z-50 bg-surface text-ink-light text-xs font-medium px-3 py-2 rounded-full border border-border hover:bg-surface-2 hover:text-ink transition-colors shadow-sm"
+    class="fixed bottom-4 left-4 z-50 bg-surface text-ink-light text-xs font-medium px-3 py-2 rounded-full border border-border hover:bg-surface-2 hover:text-ink transition-colors shadow-sm"
   >
     Gérer les cookies
   </button>

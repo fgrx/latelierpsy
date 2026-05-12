@@ -25,7 +25,12 @@ const contents = [
     iconText: "text-ink",
     iconPath:
       '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
-    perks: ["Contenus sourcés", "Pratique & accessible", "Bimensuelle", "Gratuite"],
+    perks: [
+      "Contenus sourcés",
+      "Pratique & accessible",
+      "Bimensuelle",
+      "Gratuite",
+    ],
   },
   {
     id: "youtube",
@@ -57,99 +62,129 @@ const contents = [
 ];
 ---
 
-<BaseLayout title={`Nos contenus psy — L'atelier Psy`} description={section.text}>
-  <Nav client:load logoSrc={logoOptimized.src} navLinks={siteConfig.nav.links} navActions={siteConfig.nav.actions} />
+<BaseLayout
+  title={`Nos contenus psy — L'atelier Psy`}
+  description={section.text}
+>
+  <Nav
+    client:load
+    logoSrc={logoOptimized.src}
+    navLinks={siteConfig.nav.links}
+    navActions={siteConfig.nav.actions}
+  />
 
   <section class="relative bg-brand grain overflow-hidden">
     <div class="dot-pattern absolute inset-0 pointer-events-none"></div>
     <div class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative text-center">
-      <span class="text-xs font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up">{section.surtitle}</span>
-      <h1 class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2">{section.title}</h1>
-      <p class="text-base text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3">{section.text}</p>
+      <span
+        class="text-xs font-bold tracking-widest uppercase text-neutral block mb-4 animate-fade-up"
+        >{section.surtitle}</span
+      >
+      <h1
+        class="font-pronell text-4xl md:text-5xl font-normal leading-[1.05] text-white tracking-tight animate-fade-up-2"
+      >
+        {section.title}
+      </h1>
+      <p
+        class="text-base text-neutral/80 leading-relaxed max-w-lg mx-auto mt-4 animate-fade-up-3"
+      >
+        {section.text}
+      </p>
     </div>
   </section>
 
   <section class="bg-surface-2 py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-6 space-y-10">
-      {contents.map((c, i) => (
-        <div
-          class:list={[
-            "reveal",
-            i === 0 ? "reveal-d1" : i === 1 ? "reveal-d2" : "reveal-d3",
-            "bg-white rounded-2xl border border-border overflow-hidden card-lift shadow-sm",
-          ]}
-        >
-          <div class="grid md:grid-cols-[1fr_1.4fr]">
-            <div class="bg-ink flex flex-col items-center justify-center p-10 relative">
-              <div
-                class:list={[
-                  "w-16 h-16 rounded-2xl flex items-center justify-center mb-4",
-                  c.iconBg,
-                ]}
-              >
-                <svg
-                  class:list={["w-7 h-7", c.iconText]}
-                  fill={c.id === "youtube" ? "currentColor" : "none"}
-                  stroke={c.id === "youtube" ? "none" : "currentColor"}
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  viewBox="0 0 24 24"
-                  set:html={c.iconPath}
-                />
-              </div>
-              <div class:list={["text-2xs font-bold uppercase tracking-widest", c.labelColor]}>
-                {c.label}
-              </div>
-              {c.badge && (
-                <span class="absolute top-4 right-4 flex items-center gap-1.5 bg-red-600/20 rounded-md px-2 py-1">
-                  <span class="animate-pulse-dot w-1.5 h-1.5 rounded-full bg-red-500 block" />
-                  <span class="text-2xs font-bold text-white tracking-widest">LIVE</span>
-                </span>
-              )}
-              {c.id === "podcast" && (
-                <div class="absolute bottom-4 left-6 flex items-end gap-0.5">
-                  {[6, 11, 8, 15, 10, 13, 7, 12, 9].map((h) => (
-                    <div
-                      style={`height:${h}px`}
-                      class="w-0.5 bg-white/20 rounded-sm"
-                    />
-                  ))}
+      {
+        contents.map((c, i) => (
+          <div
+            class:list={[
+              "reveal",
+              i === 0 ? "reveal-d1" : i === 1 ? "reveal-d2" : "reveal-d3",
+              "bg-white rounded-2xl border border-border overflow-hidden card-lift shadow-sm",
+            ]}
+          >
+            <div class="grid md:grid-cols-[1fr_1.4fr]">
+              <div class="bg-ink flex flex-col items-center justify-center p-10 relative">
+                <div
+                  class:list={[
+                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-4",
+                    c.iconBg,
+                  ]}
+                >
+                  <svg
+                    class:list={["w-7 h-7", c.iconText]}
+                    fill={c.id === "youtube" ? "currentColor" : "none"}
+                    stroke={c.id === "youtube" ? "none" : "currentColor"}
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    viewBox="0 0 24 24"
+                    set:html={c.iconPath}
+                  />
                 </div>
-              )}
-            </div>
+                <div
+                  class:list={[
+                    "text-2xs font-bold uppercase tracking-widest",
+                    c.labelColor,
+                  ]}
+                >
+                  {c.label}
+                </div>
+                {c.id === "podcast" && (
+                  <div class="absolute bottom-4 left-6 flex items-end gap-0.5">
+                    {[6, 11, 8, 15, 10, 13, 7, 12, 9].map((h) => (
+                      <div
+                        style={`height:${h}px`}
+                        class="w-0.5 bg-white/20 rounded-sm"
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
 
-            <div class="p-8 md:p-10 flex flex-col justify-center">
-              <h2 class="font-aveton text-xl md:text-2xl text-ink leading-tight mb-3">
-                {c.title}
-              </h2>
-              <p class="text-sm text-ink-light leading-relaxed mb-5">
-                {c.desc}
-              </p>
-              {c.stats && (
-                <div class="font-pronell text-lg text-brand mb-5">{c.stats}</div>
-              )}
-              {c.perks && (
-                <div class="flex flex-wrap gap-2 mb-5">
-                  {c.perks.map((p) => (
-                    <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand/10 text-brand">{p}</span>
-                  ))}
-                </div>
-              )}
-              <a
-                href={c.ctaHref}
-                class="btn-shine inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-lg shadow-brand/20 self-start"
-              >
-                {c.cta}
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
+              <div class="p-8 md:p-10 flex flex-col justify-center">
+                <h2 class="font-aveton text-xl md:text-2xl text-ink leading-tight mb-3">
+                  {c.title}
+                </h2>
+                <p class="text-sm text-ink-light leading-relaxed mb-5">
+                  {c.desc}
+                </p>
+                {c.stats && (
+                  <div class="font-pronell text-lg text-brand mb-5">
+                    {c.stats}
+                  </div>
+                )}
+                {c.perks && (
+                  <div class="flex flex-wrap gap-2 mb-5">
+                    {c.perks.map((p) => (
+                      <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand/10 text-brand">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <a
+                  href={c.ctaHref}
+                  class="btn-shine inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors shadow-lg shadow-brand/20 self-start"
+                >
+                  {c.cta}
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </section>
 

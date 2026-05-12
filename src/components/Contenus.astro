@@ -18,7 +18,7 @@ const contents = [
   },
   {
     id: "podcast",
-    label: "Podcast",
+    label: "Emission",
     title: "Le podcast",
     desc: "Des conversations ouvertes pour explorer certains sujets de psychothérapie de façon plus poussée.",
     cta: "Écouter le podcast",
@@ -94,14 +94,7 @@ const waveHeights = [6, 11, 8, 15, 10, 13, 7, 12, 9];
                   set:html={c.iconPath}
                 />
               </div>
-              {c.badge && (
-                <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-red-600/20 rounded-md px-2 py-1">
-                  <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-red-500 block" />
-                  <span class="text-2xs font-bold text-white tracking-widest">
-                    YOUTUBE
-                  </span>
-                </span>
-              )}
+
               {c.id === "podcast" && (
                 <div class="absolute bottom-2.5 left-4 flex items-end gap-0.5">
                   {waveHeights.map((h) => (
@@ -122,9 +115,7 @@ const waveHeights = [6, 11, 8, 15, 10, 13, 7, 12, 9];
               >
                 {c.label}
               </div>
-              <div class="font-aveton text-xl text-white mb-2">
-                {c.title}
-              </div>
+              <div class="font-aveton text-xl text-white mb-2">{c.title}</div>
               <div class="text-sm text-white/60 leading-relaxed mb-5">
                 {c.desc}
               </div>

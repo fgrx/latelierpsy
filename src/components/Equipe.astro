@@ -35,14 +35,14 @@ const section = siteConfig.equipe;
     <div class="grid grid-cols-2 gap-4 reveal reveal-d1">
       {team.map((p) => (
         <div class="card-lift rounded-2xl overflow-hidden shadow-md shadow-brand/10">
-          <div class="h-52 overflow-hidden">
+          <div class="bg-surface-2">
             <Image
               src={p.photo}
               alt={p.name}
               width={500}
               height={650}
               format="webp"
-              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+              class="w-full h-auto object-contain object-center hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div class="p-4 bg-white">
