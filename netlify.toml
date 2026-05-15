@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://catherinelapsy/*"
+  to = "https://latelierpsy/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.catherinelapsy/*"
+  to = "https://www.latelierpsy/:splat"
+  status = 301
+  force = true
