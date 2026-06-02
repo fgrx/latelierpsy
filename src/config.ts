@@ -85,4 +85,15 @@ export const siteConfig = {
       { value: "autre", label: "Autre" },
     ],
   },
+
+  popup: {
+    enabled: true,
+    id: "changement-nom3",
+    icon: "🎉",
+    title: "On change de nom !",
+    content: "Catherine la Psy devient l'Atelier Psy ! Un nouveau nom qui parle mieux de notre projet.",
+    buttonLabel: "En savoir plus",
+    buttonHref: "/catherine-la-psy-devient-latelier-psy",
+    image: "/catherinelpapsy-atelierpsy.png",
+  },
 };

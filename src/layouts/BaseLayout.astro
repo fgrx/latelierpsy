@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from "../config";
+import Popup from "../components/Popup.vue";
 import ContactBubble from "../components/ContactBubble.vue";
 import CookieConsent from "../components/CookieConsent.vue";
 import "../styles/global.css";
@@ -44,6 +45,7 @@ const description = Astro.props.description ?? siteConfig.seo.description;
     </script>
   </head>
   <body class="font-poppins text-ink bg-white overflow-x-hidden">
+    <Popup client:load enabled={siteConfig.popup.enabled} id={siteConfig.popup.id} icon={siteConfig.popup.icon} title={siteConfig.popup.title} content={siteConfig.popup.content} buttonLabel={siteConfig.popup.buttonLabel} buttonHref={siteConfig.popup.buttonHref} image={siteConfig.popup.image} />
     <slot />
 
     <ContactBubble client:load categories={siteConfig.contact.categories} />
