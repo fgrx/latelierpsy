@@ -33,7 +33,7 @@ async function getYoutubeCount(): Promise<number | null> {
   if (!apiKey) return null;
 
   try {
-    const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=catherinelapsy&key=${apiKey}`;
+    const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=latelierpsy&key=${apiKey}`;
     const res = await fetch(url);
     if (!res.ok) return null;
     const data = await res.json();

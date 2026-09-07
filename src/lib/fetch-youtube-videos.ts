@@ -6,7 +6,7 @@ export interface YouTubeVideo {
   publishedAt: string;
 }
 
-const CHANNEL_HANDLE = "catherinelapsy";
+const CHANNEL_HANDLE = "latelierpsy";
 
 async function getUploadsPlaylistId(
   apiKey: string

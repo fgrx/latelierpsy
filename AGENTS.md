@@ -60,8 +60,9 @@ All hardcoded site content lives here — hero surtitle/title/text, stat labels 
 ### Dynamic stats (build time)
 
 `src/lib/fetch-stats.ts` fetches live data at build time:
+
 - **GetResponse**: `GET /v3/contacts?perPage=1&fields=contactId` → reads `totalcount` response header
-- **YouTube**: `GET /v3/channels?part=statistics&forHandle=catherinelapsy` → reads `subscriberCount`
+- **YouTube**: `GET /v3/channels?part=statistics&forHandle=latelierpsy` → reads `subscriberCount`
 
 Since the site is static, stats update only on rebuild. Set up a cron/CI rebuild schedule for fresh numbers.
 
@@ -86,6 +87,7 @@ Custom colors, fonts, and animations are defined in `src/styles/global.css` via 
 ### Custom CSS classes
 
 Defined in `global.css` — used throughout components:
+
 - `.reveal` / `.reveal.visible` — IntersectionObserver scroll animations (`.reveal-d1`, `.reveal-d2`, `.reveal-d3` for stagger)
 - `.grain` — subtle noise texture overlay
 - `.dot-pattern` — CSS radial-gradient dot grid
