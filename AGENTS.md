@@ -2,7 +2,7 @@
 
 ## Stack
 
-- **Astro v6** (static output) + **Tailwind v4** (`@tailwindcss/vite`) + **Vue 3** (`@astrojs/vue`)
+- **Astro v7** (static output) + **Tailwind v4** (`@tailwindcss/vite`) + **Vue 3** (`@astrojs/vue`)
 - Node ≥ 22.12.0
 
 ## Commands
@@ -32,15 +32,19 @@ If either key is missing, fallback values from `src/config.ts` are used — the 
 - `src/config.ts` — centralized site config (`hero` content, `stats` fallbacks)
 - `src/lib/fetch-stats.ts` — build-time API calls (GetResponse contacts, YouTube subscribers) with graceful fallback
 - `src/content/ateliers/` — markdown content collection
-- `src/content.config.ts` — content collection schema (Astro v6 format with `glob` loader, NOT `src/content/config.ts`)
+- `src/content.config.ts` — content collection schema (glob loader, NOT `src/content/config.ts`)
 - `src/assets/` — local images imported for Astro Image optimization (e.g. `logo.png`)
 - `public/fonts/` — custom font files (`Pronell.otf`, `Aveton.otf`) referenced via `@font-face` in global.css
 
+## Sharp / global libvips
+
+`sharp` is a direct dependency (Astro 7 no longer bundles it) and an npm `override` forces `^0.35.4` for all transitive deps (`ipx` via `@netlify/images` still pins `0.34.x`). Reason: sharp 0.34's install script detects Homebrew's global libvips (`pkg-config --modversion vips-cpp`) and attempts a source build that fails. If this ever resurfaces, either remove the global vips (`brew uninstall vips`) or set `SHARP_IGNORE_GLOBAL_LIBVIPS=1`.
+
 ## Key conventions
 
-### Content collections (Astro v6)
+### Content collections (Astro v7)
 
-Content config is `src/content.config.ts` (not `src/content/config.ts`). Uses the new `glob` loader:
+Content config is `src/content.config.ts` (not `src/content/config.ts`). Uses the `glob` loader:
 
 ```ts
 import { defineCollection, z } from "astro:content";
