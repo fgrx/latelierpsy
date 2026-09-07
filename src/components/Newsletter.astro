@@ -7,10 +7,12 @@ const newsletter = siteConfig.newsletter;
 const stats = await getAllStats();
 ---
 
-<section id="newsletter" class="bg-neutral py-16 md:py-20">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-    <div class="reveal">
-      <span class="text-xs font-bold tracking-widest uppercase text-brand block mb-3">{newsletter.surtitle}</span>
+<section id="newsletter" class="relative bg-neutral py-16 md:py-20 overflow-hidden">
+  <div class="absolute -top-24 -left-24 w-72 h-72 bg-gold/25 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute -bottom-32 -right-20 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="reveal order-2 md:order-1">
+      <span class="text-xs font-bold tracking-widest uppercase text-gold block mb-3">{newsletter.surtitle}</span>
       <h2 class="font-pronell text-3xl md:text-4xl font-normal text-ink leading-tight mb-4">
         {newsletter.title}
       </h2>
@@ -19,14 +21,23 @@ const stats = await getAllStats();
       </p>
       <div class="flex flex-wrap gap-2">
         {newsletter.perks.map((p) => (
-          <span class="text-xs font-semibold px-4 py-1.5 rounded-full bg-brand/10 text-brand">{p}</span>
+          <span class="text-xs font-semibold px-4 py-1.5 rounded-full bg-gold/10 text-ink">{p}</span>
         ))}
       </div>
     </div>
-    <div class="reveal reveal-d1 bg-white rounded-2xl p-8 shadow-xl shadow-brand/10">
-      <div class="font-aveton text-xl text-ink mb-1">S'abonner à la Lettre Psy</div>
-      <div class="text-sm text-ink-faint mb-6">Rejoignez les {stats.lettrePsy.value} lecteurs</div>
-      <NewsletterForm client:load count={stats.lettrePsy.value} apiUrl={newsletter.apiUrl} campaignId={newsletter.defaultCampaignId} />
+    <div class="relative reveal reveal-d1 order-1 md:order-2">
+      <div class="absolute -inset-4 bg-gold/25 rounded-[2rem] blur-2xl pointer-events-none" aria-hidden="true"></div>
+      <div class="relative bg-white rounded-2xl border border-gold/50 shadow-xl shadow-gold/15 p-8">
+        <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+            <path d="m22 7-10 6L2 7"></path>
+          </svg>
+        </div>
+        <div class="font-aveton text-xl text-ink mb-1">S'abonner à la Lettre Psy</div>
+        <div class="text-sm text-ink-faint mb-6">Rejoignez les <span class="font-bold text-gold">{stats.lettrePsy.value}</span> lecteurs</div>
+        <NewsletterForm client:load count={stats.lettrePsy.value} apiUrl={newsletter.apiUrl} campaignId={newsletter.defaultCampaignId} variant="gold" />
+      </div>
     </div>
   </div>
 </section>

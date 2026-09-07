@@ -140,9 +140,7 @@
     <input name="bot-field" hidden />
 
     <div>
-      <label class="block font-aveton text-sm text-ink mb-1.5"
-        >Catégorie</label
-      >
+      <label class="block font-aveton text-sm text-ink mb-1.5">Catégorie</label>
       <select
         v-model="form.category"
         name="category"
@@ -170,9 +168,7 @@
     </div>
 
     <div>
-      <label class="block font-aveton text-sm text-ink mb-1.5"
-        >Votre nom</label
-      >
+      <label class="block font-aveton text-sm text-ink mb-1.5">Votre nom</label>
       <input
         v-model="form.name"
         type="text"
@@ -192,7 +188,7 @@
         type="email"
         name="email"
         required
-        placeholder="votre@email.fr"
+        placeholder="votre-adresse@email.fr"
         class="block w-full py-3 px-4 text-sm text-ink bg-white border border-border rounded-xl outline-none transition-all duration-200 focus:border-brand focus:ring-2 focus:ring-brand/20 placeholder:text-ink-faint/50"
       />
     </div>

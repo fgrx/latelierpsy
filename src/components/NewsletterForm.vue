@@ -1,7 +1,7 @@
 <template>
   <div v-if="sent" class="text-center py-8 animate-scale-in">
     <div class="text-4xl mb-3">✓</div>
-    <div class="font-pronell text-2xl text-brand mb-2">Bienvenue !</div>
+    <div :class="['font-pronell text-2xl mb-2', isGold ? 'text-gold' : 'text-brand']">Bienvenue !</div>
     <p class="text-sm text-ink-faint">
       {{ successMessage }}
     </p>
@@ -14,7 +14,7 @@
       required
       :class="[
         'w-full text-sm px-4 py-3 border rounded-xl text-ink outline-none transition-colors duration-200',
-        error ? 'border-red-500' : 'border-border focus:border-brand',
+        error ? 'border-red-500' : `border-border ${focusClass}`,
       ]"
     />
     <input
@@ -23,14 +23,14 @@
       v-model="email"
       :class="[
         'w-full text-sm px-4 py-3 border rounded-xl text-ink outline-none transition-colors duration-200',
-        error ? 'border-red-500' : 'border-border focus:border-brand',
+        error ? 'border-red-500' : `border-border ${focusClass}`,
       ]"
     />
     <p v-if="error" class="text-xs text-red-500">{{ error }}</p>
     <button
       @click="subscribe"
       :disabled="loading"
-      class="btn-shine w-full text-base font-semibold py-3 rounded-full bg-brand text-white hover:bg-brand-dark transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+      :class="buttonClass"
     >
       {{ loading ? "Envoi en cours…" : buttonLabel }}
     </button>
@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -51,13 +51,28 @@ const props = withDefaults(
     apiUrl: string;
     buttonLabel?: string;
     successMessage?: string;
+    variant?: "brand" | "gold";
   }>(),
   {
     campaignId: "qD1uT",
     buttonLabel: "S'abonner gratuitement →",
     successMessage: "Vous recevrez prochainement la Lettre Psy.",
+    variant: "brand",
   },
 );
+
+const isGold = computed(() => props.variant === "gold");
+
+const focusClass = computed(() =>
+  isGold.value ? "focus:border-gold" : "focus:border-brand",
+);
+
+const buttonClass = computed(() => [
+  "btn-shine w-full text-base font-semibold py-3 rounded-full transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed",
+  isGold.value
+    ? "bg-gold text-ink hover:bg-gold/90 shadow-lg shadow-gold/25"
+    : "bg-brand text-white hover:bg-brand-dark",
+]);
 
 const name = ref("");
 const email = ref("");

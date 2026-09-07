@@ -8,16 +8,30 @@ const stats = await getAllStats();
 ---
 
 <div class="not-prose reveal">
-  <div class="bg-white rounded-2xl border border-border shadow-xl shadow-brand/10 p-8 md:p-10 max-w-lg mx-auto text-center">
-    <div class="font-aveton text-xl text-ink mb-1">
-      S'abonner à la Lettre Psy
+  <div class="relative max-w-lg mx-auto">
+    <div class="absolute -inset-4 bg-gold/25 rounded-[2rem] blur-2xl pointer-events-none" aria-hidden="true"></div>
+    <div
+      class="relative bg-white rounded-2xl border border-gold/50 shadow-xl shadow-gold/15 p-8 md:p-10 text-center"
+    >
+      <div class="w-11 h-11 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 mx-auto">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"></path>
+          <path d="m22 7-10 6L2 7"></path>
+        </svg>
+      </div>
+      <div class="font-aveton text-xl text-ink mb-1">
+        S'abonner à la Lettre Psy
+      </div>
+      <div class="text-sm text-ink-faint mb-6">
+        Rejoignez les <span class="font-bold text-gold">{stats.lettrePsy.value}</span> lecteurs
+      </div>
+      <NewsletterForm
+        client:load
+        count={stats.lettrePsy.value}
+        apiUrl={newsletter.apiUrl}
+        campaignId={newsletter.defaultCampaignId}
+        variant="gold"
+      />
     </div>
-    <div class="text-sm text-ink-faint mb-6">Rejoignez les {stats.lettrePsy.value} lecteurs</div>
-    <NewsletterForm
-      client:load
-      count={stats.lettrePsy.value}
-      apiUrl={newsletter.apiUrl}
-      campaignId={newsletter.defaultCampaignId}
-    />
   </div>
 </div>

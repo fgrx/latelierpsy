@@ -1,12 +1,12 @@
 # Redirection 301 de l'ancien domaine vers le nouveau (SEO)
 [[redirects]]
-  from = "https://cartherinelapsy.com/*"
+  from = "https://catherinelapsy.com/*"
   to = "https://www.latelierpsy.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.cartherinelapsy.com/*"
+  from = "https://www.catherinelapsy.com/*"
   to = "https://www.latelierpsy.com/:splat"
   status = 301
   force = true
