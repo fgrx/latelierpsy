@@ -9,8 +9,8 @@ export const siteConfig = {
   nav: {
     links: [
       { label: "Lettre Psy", href: "/lettre-psy/" },
-      { label: "Ateliers psy", href: "/ateliers" },
-      { label: "Contenus psy", href: "/contenus" },
+      { label: "Ateliers", href: "/ateliers" },
+      { label: "Contenus gratuits", href: "/contenus" },
       { label: "Qui sommes-nous ?", href: "/qui-sommes-nous" },
       { label: "Contact", href: "/contact" },
     ],
@@ -20,7 +20,7 @@ export const siteConfig = {
   },
 
   hero: {
-    surtitle: "Psychothérapie en ligne · Depuis 2021",
+    surtitle: "Psychothérapie en ligne",
     title: "Commencez le travail chez vous, sans contraintes",
     text: "Des ateliers de psychologie accessibles, scientifiquement fondés, pour particuliers et professionnels.",
   },

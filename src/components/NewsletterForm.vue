@@ -1,7 +1,14 @@
 <template>
-  <div v-if="sent" class="text-center py-8 animate-scale-in">
+  <div v-if="sent" class="text-center py-8 animate-scale-in" id="formLP">
     <div class="text-4xl mb-3">✓</div>
-    <div :class="['font-pronell text-2xl mb-2', isGold ? 'text-gold' : 'text-brand']">Bienvenue !</div>
+    <div
+      :class="[
+        'font-pronell text-2xl mb-2',
+        isGold ? 'text-gold' : 'text-brand',
+      ]"
+    >
+      Bienvenue !
+    </div>
     <p class="text-sm text-ink-faint">
       {{ successMessage }}
     </p>
@@ -27,11 +34,7 @@
       ]"
     />
     <p v-if="error" class="text-xs text-red-500">{{ error }}</p>
-    <button
-      @click="subscribe"
-      :disabled="loading"
-      :class="buttonClass"
-    >
+    <button @click="subscribe" :disabled="loading" :class="buttonClass">
       {{ loading ? "Envoi en cours…" : buttonLabel }}
     </button>
     <p class="text-xs text-ink-faint text-center leading-relaxed">
