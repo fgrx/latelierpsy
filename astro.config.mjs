@@ -20,6 +20,10 @@ export default defineConfig({
 
   adapter: netlify(),
 
+  redirects: {
+    '/ateliers/atelier-estime-de-soi': '/ateliers/estime-de-soi',
+  },
+
   integrations: [
     vue(),
     mdx(),
