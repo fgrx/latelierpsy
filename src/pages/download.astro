@@ -1,0 +1,55 @@
+---
+import { getImage } from "astro:assets";
+import { siteConfig } from "../config";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.vue";
+import SubscribeAndDownload from "../components/SubscribeAndDownload.vue";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/logo.png";
+
+const logoOptimized = await getImage({ src: logo, format: "webp" });
+---
+
+<BaseLayout
+  title="Votre téléchargement — L'atelier Psy"
+  description="Téléchargez votre fichier offert par L'atelier Psy."
+  noindex={true}
+>
+  <Nav
+    client:load
+    logoSrc={logoOptimized.src}
+    navLinks={siteConfig.nav.links}
+    navActions={siteConfig.nav.actions}
+  />
+
+  <main
+    class="relative overflow-hidden bg-gradient-to-b from-surface to-white pt-28 pb-20"
+  >
+    <div
+      class="absolute inset-0 dot-pattern opacity-40 pointer-events-none"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative max-w-2xl mx-auto px-4 sm:px-6">
+      <div class="reveal">
+        <div
+          class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-brand bg-brand/10 px-3 py-1.5 rounded-full mb-5"
+        >
+          🎁 Téléchargement gratuit
+        </div>
+        <div
+          class="bg-white rounded-2xl border border-border shadow-xl shadow-ink/5 p-6 md:p-10"
+        >
+          <SubscribeAndDownload
+            client:load
+            apiUrl={siteConfig.download.apiUrl}
+            apiKey={siteConfig.download.apiKey}
+            defaultListId={siteConfig.download.defaultListId}
+          />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

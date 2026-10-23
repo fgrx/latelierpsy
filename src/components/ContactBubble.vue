@@ -20,57 +20,55 @@
     </svg>
   </button>
 
-  <Teleport to="body">
-    <Transition name="modal">
+  <Transition name="modal">
+    <div
+      v-if="open"
+      class="fixed inset-0 z-[60] flex items-center justify-center p-4"
+      @keydown.escape="open = false"
+    >
       <div
-        v-if="open"
-        class="fixed inset-0 z-[60] flex items-center justify-center p-4"
-        @keydown.escape="open = false"
+        class="absolute inset-0 bg-ink/40 backdrop-blur-sm"
+        @click="open = false"
+      ></div>
+
+      <div
+        class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto animate-scale-in"
       >
         <div
-          class="absolute inset-0 bg-ink/40 backdrop-blur-sm"
-          @click="open = false"
-        ></div>
-
-        <div
-          class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto animate-scale-in"
+          class="sticky top-0 bg-white rounded-t-2xl border-b border-border px-6 py-4 flex items-center justify-between z-10"
         >
-          <div
-            class="sticky top-0 bg-white rounded-t-2xl border-b border-border px-6 py-4 flex items-center justify-between z-10"
+          <div>
+            <h3 class="font-aveton text-lg text-ink">
+              Envoyez-nous un message
+            </h3>
+          </div>
+          <button
+            @click="open = false"
+            aria-label="Fermer"
+            class="w-8 h-8 rounded-full hover:bg-surface flex items-center justify-center transition-colors text-ink-faint hover:text-ink"
           >
-            <div>
-              <h3 class="font-aveton text-lg text-ink">
-                Envoyez-nous un message
-              </h3>
-            </div>
-            <button
-              @click="open = false"
-              aria-label="Fermer"
-              class="w-8 h-8 rounded-full hover:bg-surface flex items-center justify-center transition-colors text-ink-faint hover:text-ink"
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
             >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
 
-          <div class="px-6 py-5">
-            <ContactForm variant="modal" :categories="categories" />
-          </div>
+        <div class="px-6 py-5">
+          <ContactForm variant="modal" :categories="categories" />
         </div>
       </div>
-    </Transition>
-  </Teleport>
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">

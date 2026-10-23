@@ -32,7 +32,9 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/gifts/'),
+    }),
   ],
 
   image: {

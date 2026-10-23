@@ -1,3 +1,7 @@
+const emailApiUrl =
+  import.meta.env.PUBLIC_EMAIL_API_URL ?? "https://email-server-api-production.up.railway.app";
+const protectionApiKey = import.meta.env.PUBLIC_PROTECTION_API_KEY;
+
 export const siteConfig = {
   seo: {
     title: "L'atelier Psy — Psychothérapie en ligne",
@@ -30,8 +34,19 @@ export const siteConfig = {
     title: "Une newsletter bimensuelle sur la psychologie",
     text: "Pour mieux comprendre la psychologie et la psychothérapie. Gratuite, fondée sur des contenus sourcés.",
     perks: ["Contenus sourcés", "Pratique & accessible", "Bimensuelle", "Gratuite"],
-    apiUrl: "https://email-server-api-production.up.railway.app/add-contact",
+    apiUrl: `${emailApiUrl}/api/add-contact`,
     defaultCampaignId: "qD1uT",
+  },
+
+  gifts: {
+    apiUrl: `${emailApiUrl}/api/lead-magnet-send`,
+    apiKey: protectionApiKey,
+  },
+
+  download: {
+    apiUrl: `${emailApiUrl}/api/subscribe-contact`,
+    apiKey: protectionApiKey,
+    defaultListId: "qD1uT",
   },
 
   ateliers: {

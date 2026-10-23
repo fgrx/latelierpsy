@@ -297,73 +297,71 @@ onUnmounted(() => document.removeEventListener("keydown", onKey));
       </nav>
     </div>
 
-    <Teleport to="body">
+    <div
+      v-if="activeVideoId"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4"
+      @click.self="closeModal"
+    >
       <div
-        v-if="activeVideoId"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4"
-        @click.self="closeModal"
+        class="absolute inset-0 bg-ink/90"
+        @click="closeModal"
+      />
+      <div
+        class="relative z-10 w-full max-w-4xl"
+        @click.stop
       >
-        <div
-          class="absolute inset-0 bg-ink/90"
+        <button
+          class="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors"
           @click="closeModal"
-        />
-        <div
-          class="relative z-10 w-full max-w-4xl"
-          @click.stop
         >
-          <button
-            class="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors"
-            @click="closeModal"
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
           >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <div
+          class="rounded-2xl overflow-hidden shadow-2xl bg-black"
+        >
+          <div class="aspect-video">
+            <iframe
+              :src="`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`"
+              class="w-full h-full"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <a
+            :href="`https://www.youtube.com/watch?v=${activeVideoId}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors"
+          >
+            Voir sur YouTube
             <svg
-              class="w-8 h-8"
+              class="w-3.5 h-3.5"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               viewBox="0 0 24 24"
             >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-          <div
-            class="rounded-2xl overflow-hidden shadow-2xl bg-black"
-          >
-            <div class="aspect-video">
-              <iframe
-                :src="`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`"
-                class="w-full h-full"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+              <path
+                d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
               />
-            </div>
-          </div>
-          <div class="mt-4 text-center">
-            <a
-              :href="`https://www.youtube.com/watch?v=${activeVideoId}`"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors"
-            >
-              Voir sur YouTube
-              <svg
-                class="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
-                />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-            </a>
-          </div>
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
         </div>
       </div>
-    </Teleport>
+    </div>
   </div>
 </template>

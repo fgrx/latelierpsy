@@ -63,4 +63,15 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { ateliers, pages };
+const gifts = defineCollection({
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/gifts" }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    image: image(),
+    file: z.string(),
+    titleFile: z.string().optional(),
+  }),
+});
+
+export const collections = { ateliers, pages, gifts };

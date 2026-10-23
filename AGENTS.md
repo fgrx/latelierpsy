@@ -21,8 +21,18 @@ Required in `.env` (see `.env.example`):
 
 - `GETRESPONSE_API_KEY` — GetResponse API key for fetching newsletter subscriber count at build time
 - `YOUTUBE_API_KEY` — YouTube Data API v3 key for fetching channel subscriber count at build time
+- `PUBLIC_EMAIL_API_URL` — base URL of the email API (defaults to the Railway prod URL); `.env.development` overrides it to `http://localhost:3010` for local dev
+- `PUBLIC_PROTECTION_API_KEY` — `x-api-key` sent by client-side forms (`GiftForm`) to the email API (shipped in the client bundle by design)
 
 If either key is missing, fallback values from `src/config.ts` are used — the build never fails.
+
+## Lead magnet flow (`/gifts/*` + `/download/`)
+
+- `GiftForm.vue` POSTs to `POST /api/lead-magnet-send` with `{ email, name, fileUrl, fileName, fileTitle }` + `x-api-key` header — **email only, no subscription**
+- The backend (repo `~/work/email-server-api`, port 3010) replies with a Brevo email whose button links to `/download/?email=…&list=…&file=…`
+- `/download/` (`SubscribeAndDownload.vue`) starts the file download **and** POSTs to `POST /api/subscribe-contact` with `{ email, name, listId }` + `x-api-key` — subscribes to GetResponse, **no email sent** (GetResponse itself sends its own confirmation/onboarding emails)
+- `fileUrl` is computed in `src/pages/gifts/[slug].astro` from the frontmatter `file` path + `Astro.url.origin`; `/download/` only accepts same-origin `file` params
+- CORS: allowed origins live in the backend's `CORS_ALLOWED_ORIGINS` (includes `http://localhost:4321` for dev)
 
 ## Project structure
 

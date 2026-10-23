@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /gifts/
+Disallow: /download/
 
 Sitemap: https://www.latelierpsy.com/sitemap-index.xml
